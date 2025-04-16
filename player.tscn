@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dghxcd184a6gu"]
+
+[ext_resource type="PackedScene" uid="uid://dwhrdw8g1fgtd" path="res://Slime/Slime_glb.glb" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cqwsep82bs56h" path="res://player2.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://dyadpnkg5ppdt" path="res://Slime/slime_glb.gd" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://b8a0lrhcgy2ep" path="res://spring_arm_3d.gd" id="4_hqtel"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_onrkg"]
+height = 0.5
+radius = 0.475
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.519611, 0)
+shape = SubResource("CylinderShape3D_onrkg")
+
+[node name="Camera Mount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Slime_glb" parent="Visuals" instance=ExtResource("1_4flbx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("3_i3pqv")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663557, 0)
+spring_length = 6.0
+script = ExtResource("4_hqtel")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 1.94579, 3.52909)
