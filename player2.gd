@@ -11,6 +11,7 @@ var somethingHappened = false
 var jumping = false
 var sense_horizontal = 0.2
 var sense_vertical = 0.2
+var mouse_captured : bool = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -22,6 +23,15 @@ func _input(event):
 		#camera_mount.rotate_x(deg_to_rad(-event.relative.y)*sense_vertical)
 		pass
 
+func capture_mouse():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	mouse_captured = true
+
+
+func release_mouse():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	mouse_captured = false
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -31,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		jumping = false
 
 		# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		slime.animationType("Jump_Move")
 		velocity.y = JUMP_VELOCITY
 		jumping = true
@@ -48,11 +58,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("emote 3") and is_on_floor():
 		slime.animationType("Emote_Excite")
 		somethingHappened = true
+	
+	# Mouse capturing
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		capture_mouse()
+	if Input.is_key_pressed(KEY_ESCAPE):
+		release_mouse()
 
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "foward", "back")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	direction = direction.rotated(Vector3.UP, camera.global_rotation.y)
@@ -83,3 +99,5 @@ func _physics_process(delta: float) -> void:
 		somethingHappened = false
 	else:
 		somethingHappened = false
+		
+	

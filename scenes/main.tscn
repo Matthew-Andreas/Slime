@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="Script" uid="uid://bvv2xv8a7ghx6" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://player.tscn" id="2_0wfyh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -31,5 +31,5 @@ transform = Transform3D(1, 0, 0, 0, 0.0777107, 0, 0, 0, 1, 4.5, -1, 4.5)
 use_collision = true
 size = Vector3(10, 1, 10)
 
-[node name="ProtoController" parent="." instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9262, 0.0388554, 6.53685)
+[node name="Player" parent="." instance=ExtResource("2_0wfyh")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.475161, -0.961145, 8.6173)
