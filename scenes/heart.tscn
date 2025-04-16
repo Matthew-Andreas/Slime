@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0y8sm2sc0ohf"]
+
+[ext_resource type="PackedScene" uid="uid://b7pfw0m6dvwr1" path="res://models/Heart.fbx" id="1_v30as"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v30as"]
+radius = 0.247758
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264516, 0)
+shape = SubResource("SphereShape3D_v30as")
+
+[node name="Heart" parent="." instance=ExtResource("1_v30as")]
+
+[node name="Heart" parent="Heart" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[editable path="Heart"]
