@@ -1,0 +1,491 @@
+[gd_scene load_steps=18 format=3 uid="uid://bvbg5b7vygoj"]
+
+[ext_resource type="Script" uid="uid://b04p0tt8ho1ex" path="res://scripts/title_screen.gd" id="1_05l2w"]
+[ext_resource type="Texture2D" uid="uid://cu03tlg8s20wh" path="res://addons/Background/space background.png" id="1_ig5kc"]
+[ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="3_cs5ya"]
+[ext_resource type="Texture2D" uid="uid://bw25un118wg4x" path="res://Slime/slime 2d.png" id="3_hafda"]
+[ext_resource type="Texture2D" uid="uid://d2l1mhkypni0x" path="res://2D Gems/blue gem.png" id="5_013yr"]
+[ext_resource type="Texture2D" uid="uid://defb1pqkhm0fu" path="res://2D Gems/lime gem.png" id="6_8vmu4"]
+[ext_resource type="Texture2D" uid="uid://thlxmahi68gw" path="res://2D Gems/pink gem.png" id="7_xfn3p"]
+[ext_resource type="Texture2D" uid="uid://cs3sf0qncatoe" path="res://2D Gems/green gem.png" id="8_rhgbh"]
+
+[sub_resource type="Animation" id="Animation_8vmu4"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueGem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1023.25, 519.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlueGem:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LimeGem:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(157, 499)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LimeGem:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0174533]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PinkGem:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367, 130)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PinkGem:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0174533]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GreenGem:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(809, 121)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GreenGem:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0523599]
+}
+
+[sub_resource type="Animation" id="Animation_rhgbh"]
+resource_name = "gems_float"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueGem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1023.25, 519.5), Vector2(1023.25, 540), Vector2(1023.25, 519.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlueGem:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0174533, 0.174533, 0.0872665, 0.0174533, -0.0872665, -0.139626, -0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LimeGem:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(157, 499), Vector2(157, 520), Vector2(157, 499)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LimeGem:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0174533, 0.0523599, 0.0872665, 0.15708, 0.0698132, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PinkGem:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(367, 130), Vector2(367, 150), Vector2(367, 130)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PinkGem:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0174533, 0.0698132, 0.122173, 0.127409, 0.0, 0.0200713, -0.0872665]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GreenGem:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(809, 121), Vector2(809, 142), Vector2(809, 121)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GreenGem:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0523599, 0.122173, 0.174533, 0.10472, 0.0, -0.0523599, -0.10472]
+}
+
+[sub_resource type="Animation" id="Animation_013yr"]
+resource_name = "logo_bounce"
+length = 3.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_xfn3p"]
+resource_name = "slime_idle"
+length = 3.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfn3p"]
+_data = {
+&"RESET": SubResource("Animation_8vmu4"),
+&"gems_float": SubResource("Animation_rhgbh"),
+&"logo_bounce": SubResource("Animation_013yr"),
+&"slime_idle": SubResource("Animation_xfn3p")
+}
+
+[sub_resource type="Animation" id="Animation_cs5ya"]
+resource_name = "logo_bounce"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLogo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mykxm"]
+_data = {
+&"logo_bounce": SubResource("Animation_cs5ya")
+}
+
+[sub_resource type="Animation" id="Animation_tklts"]
+resource_name = "slime_idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeCharacter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.18, 0.18), Vector2(0.25, 0.25), Vector2(0.18, 0.18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u26n3"]
+_data = {
+&"slime_idle": SubResource("Animation_tklts")
+}
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_05l2w")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -54.0
+offset_right = 1418.0
+offset_bottom = 751.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ig5kc")
+stretch_mode = 6
+
+[node name="GameLogo" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameName" type="Label" parent="GameLogo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 404.25
+offset_top = 33.5177
+offset_right = 697.25
+offset_bottom = 153.518
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/font = ExtResource("3_cs5ya")
+theme_override_font_sizes/font_size = 120
+text = "SLIME"
+
+[node name="MenuButtons" type="VBoxContainer" parent="."]
+offset_left = 399.0
+offset_top = 272.0
+offset_right = 797.0
+offset_bottom = 435.0
+theme_override_constants/separation = 20
+
+[node name="PLAY" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "PLay"
+
+[node name="OPTIONS" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Options
+"
+
+[node name="QUIT" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Quit
+"
+
+[node name="SlimeCharacter" type="TextureRect" parent="."]
+offset_left = 534.0
+offset_top = 184.0
+offset_right = 1087.0
+offset_bottom = 531.0
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_hafda")
+
+[node name="BlueGem" type="Sprite2D" parent="."]
+position = Vector2(1023.25, 519.5)
+rotation = 0.0174533
+scale = Vector2(0.18838, 0.253906)
+texture = ExtResource("5_013yr")
+
+[node name="LimeGem" type="Sprite2D" parent="."]
+position = Vector2(157, 499)
+rotation = 0.0174533
+scale = Vector2(0.184564, 0.178779)
+texture = ExtResource("6_8vmu4")
+
+[node name="PinkGem" type="Sprite2D" parent="."]
+position = Vector2(367, 130)
+rotation = 0.0174533
+scale = Vector2(0.219251, 0.186747)
+texture = ExtResource("7_xfn3p")
+
+[node name="GreenGem" type="Sprite2D" parent="."]
+position = Vector2(809, 121)
+rotation = 0.0523599
+scale = Vector2(0.401235, 0.352217)
+texture = ExtResource("8_rhgbh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(253, 222)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(680, 202)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(429, 206)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="."]
+position = Vector2(402, 459)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="."]
+position = Vector2(768, 457)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="."]
+position = Vector2(593, 455)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D7" type="CPUParticles2D" parent="."]
+position = Vector2(858, 229)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D8" type="CPUParticles2D" parent="."]
+position = Vector2(1033, 586)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D9" type="CPUParticles2D" parent="."]
+position = Vector2(589, 580)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="CPUParticles2D10" type="CPUParticles2D" parent="."]
+position = Vector2(147, 576)
+amount = 21
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="GemsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xfn3p")
+}
+
+[node name="LogoAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mykxm")
+}
+
+[node name="SlimeAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u26n3")
+}

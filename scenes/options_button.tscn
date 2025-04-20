@@ -1,0 +1,158 @@
+[gd_scene load_steps=4 format=3 uid="uid://0kvcnbu5ccer"]
+
+[ext_resource type="Script" uid="uid://cakeay2uyp1er" path="res://scripts/options_button.gd" id="1_6qh3v"]
+[ext_resource type="Texture2D" uid="uid://boo2uk0hx6u78" path="res://addons/Background/Optionsbackground.png" id="2_qhrmj"]
+[ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="3_pxh0k"]
+
+[node name="OptionsButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qh3v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qhrmj")
+
+[node name="OPTIONS" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_right = 95.0
+offset_bottom = 177.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_pxh0k")
+theme_override_font_sizes/font_size = 70
+text = "OPTIONS
+"
+
+[node name="VolumeSettings" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -108.0
+offset_right = 182.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="VolumeSettings"]
+layout_mode = 2
+
+[node name="MasterVolume" type="Label" parent="VolumeSettings/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_pxh0k")
+theme_override_font_sizes/font_size = 20
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="VolumeSettings/MasterVolumeContainer/MasterVolume"]
+layout_mode = 2
+offset_left = 184.0
+offset_right = 365.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="VolumeSettings"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="VolumeSettings/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_pxh0k")
+theme_override_font_sizes/font_size = 20
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="VolumeSettings/MusicVolumeContainer/MusicVolume"]
+layout_mode = 2
+offset_left = 184.0
+offset_right = 365.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+step = 0.01
+value = 1.0
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="VolumeSettings"]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="VolumeSettings/SFXVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_pxh0k")
+theme_override_font_sizes/font_size = 20
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="VolumeSettings/SFXVolumeContainer/SFXVolume"]
+layout_mode = 2
+offset_left = 184.0
+offset_right = 365.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+step = 0.01
+value = 1.0
+
+[node name="DisplaySettings" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -10.0
+offset_right = 220.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullScreenContainer" type="HBoxContainer" parent="DisplaySettings"]
+layout_mode = 2
+
+[node name="FullScreen" type="Label" parent="DisplaySettings/FullScreenContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("3_pxh0k")
+theme_override_font_sizes/font_size = 20
+text = "Full Screen"
+
+[node name="FullscreenToggle" type="CheckBox" parent="DisplaySettings/FullScreenContainer/FullScreen"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 28.0
+offset_right = 49.0
+offset_bottom = 52.0
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -59.0
+offset_right = 82.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_pxh0k")
+theme_override_font_sizes/font_size = 20
+text = "BACK"
