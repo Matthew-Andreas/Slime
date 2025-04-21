@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfit6uhenhacm"]
+
+[ext_resource type="PackedScene" uid="uid://bh641rltfxwvm" path="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Mushroom_flat_shiitake.fbx" id="1_ideak"]
+
+[node name="NPC" type="Node3D"]
+
+[node name="Mushroom_flat_shiitake" parent="." instance=ExtResource("1_ideak")]
