@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://dy5kg584ekfjq"]
+[gd_scene load_steps=3 format=3 uid="uid://dy5kg584ekfjq"]
+
+[ext_resource type="Texture2D" uid="uid://c7ldvs2jg16sh" path="res://Material-LIB/Gravel/Gravel-B.png" id="1_ba0x2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlgqw"]
+albedo_texture = ExtResource("1_ba0x2")
 
 [node name="StaticBody3D" type="StaticBody3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("StandardMaterial3D_nlgqw")
 use_collision = true
 size = Vector3(1, 0.075, 1)
