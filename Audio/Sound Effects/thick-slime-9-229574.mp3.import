@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dg6vws5in4qhl"
+path="res://.godot/imported/thick-slime-9-229574.mp3-d19f8624d1621107b8d20bf498451b2b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/thick-slime-9-229574.mp3"
+dest_files=["res://.godot/imported/thick-slime-9-229574.mp3-d19f8624d1621107b8d20bf498451b2b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

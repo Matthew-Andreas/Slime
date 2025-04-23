@@ -319,7 +319,7 @@ theme_override_constants/separation = 20
 [node name="PLAY" type="Button" parent="MenuButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "PLay"
+text = "Play"
 
 [node name="OPTIONS" type="Button" parent="MenuButtons"]
 layout_mode = 2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbxlc304r7tlj"
+path="res://.godot/imported/2022-09-09_-_Dodging_Lasers_-_www.FesliyanStudios.com.mp3-a2114193a01128249b38994aab750ad3.mp3str"
+
+[deps]
+
+source_file="res://Audio/Background Music/2022-09-09_-_Dodging_Lasers_-_www.FesliyanStudios.com.mp3"
+dest_files=["res://.godot/imported/2022-09-09_-_Dodging_Lasers_-_www.FesliyanStudios.com.mp3-a2114193a01128249b38994aab750ad3.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

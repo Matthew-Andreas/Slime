@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3771ibx5x8ax"
+path="res://.godot/imported/various-mushy-impacts-or-wet-splats-70685.mp3-da23e431fb00fd5d04cdff126dd3919d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/various-mushy-impacts-or-wet-splats-70685.mp3"
+dest_files=["res://.godot/imported/various-mushy-impacts-or-wet-splats-70685.mp3-da23e431fb00fd5d04cdff126dd3919d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
