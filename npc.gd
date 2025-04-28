@@ -1,4 +1,5 @@
 extends Node3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,13 +14,15 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body.name == "Player"):
-		var new_pos = Vector3(self.position.x,self.position.y+0.200,self.position.z);
-		self.position = new_pos;
+		#var new_pos = Vector3(self.position.x,self.position.y+0.200,self.position.z);
+		#self.position = new_pos;
+		animation_player.play("NPC Pop_up")
 	pass # Replace with function body.
 
 	
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if(body.name == "Player"):
-		var new_pos = Vector3(self.position.x,self.position.y-0.200,self.position.z);
-		self.position = new_pos;
+		#var new_pos = Vector3(self.position.x,self.position.y-0.200,self.position.z);
+		#self.position = new_pos;
+		animation_player.play_backwards("NPC Pop_up")
 	pass # Replace with function body.
