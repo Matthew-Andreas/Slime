@@ -1,7 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfit6uhenhacm"]
+[gd_scene load_steps=5 format=3 uid="uid://cfit6uhenhacm"]
 
 [ext_resource type="PackedScene" uid="uid://bh641rltfxwvm" path="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Mushroom_flat_shiitake.fbx" id="1_ideak"]
+[ext_resource type="Script" uid="uid://ba1x87axwwrwr" path="res://npc.gd" id="1_xxcha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ideak"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxcha"]
 
 [node name="NPC" type="Node3D"]
+script = ExtResource("1_xxcha")
 
 [node name="Mushroom_flat_shiitake" parent="." instance=ExtResource("1_ideak")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.284927, 0)
+shape = SubResource("BoxShape3D_ideak")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507075, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_xxcha")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

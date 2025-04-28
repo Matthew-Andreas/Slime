@@ -46,4 +46,4 @@ material = SubResource("StandardMaterial3D_jyhfs")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.475161, -0.961145, 8.6173)
 
 [node name="NPC" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.411829, -0.971586, 1.0972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419, -1.15719, 1.093)
