@@ -1,0 +1,587 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5efsu4nfbwhk"]
+
+[ext_resource type="Shader" uid="uid://b1yfhnktknhgg" path="res://scenes/ending_scene.gdshader" id="1_0vjt2"]
+[ext_resource type="Script" uid="uid://dfxpap00f825r" path="res://scripts/ending_scene.gd" id="1_qar6k"]
+[ext_resource type="Script" uid="uid://e12iga1yokjv" path="res://scripts/grid_lines.gd" id="2_i70nl"]
+[ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="3_qar6k"]
+[ext_resource type="Script" uid="uid://18yp0ovpunr3" path="res://scripts/restart.gd" id="4_5cw1r"]
+[ext_resource type="Script" uid="uid://k0kmxa0xx027" path="res://scripts/main_menu_button.gd" id="5_tnx00"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gtp6"]
+shader = ExtResource("1_0vjt2")
+shader_parameter/color1 = Color(0.07, 0.07, 0.07, 1)
+shader_parameter/color2 = Color(0.17, 0.24, 0.31, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7678q"]
+bg_color = Color(0.0980392, 0.14902, 0.219608, 0.564706)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6x60d"]
+bg_color = Color(0.258824, 0.258824, 0.258824, 0.501961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.376471, 0.490196, 0.545098, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Animation" id="Animation_segms"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainTitle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsPanel/PanelTitle:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StatsPanel/TimeLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StatsPanel/CollectiblesLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StatsPanel/AccuracyLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StatsPanel/ScoreLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StatsPanel/TimeValue:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StatsPanel/CollectiblesValue:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StatsPanel/AccuracyValue:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StatsPanel/ScoreValue:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RatingDisplay:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Restart:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MainMenuButton:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7jup5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainTitle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsPanel/PanelTitle:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StatsPanel/TimeLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StatsPanel/CollectiblesLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StatsPanel/AccuracyLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StatsPanel/ScoreLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StatsPanel/TimeValue:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StatsPanel/CollectiblesValue:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StatsPanel/AccuracyValue:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StatsPanel/ScoreValue:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RatingDisplay:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Restart:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MainMenuButton:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgabq"]
+_data = {
+&"RESET": SubResource("Animation_7jup5"),
+&"fade_in": SubResource("Animation_segms")
+}
+
+[node name="EndingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qar6k")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5gtp6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridLines" type="Node2D" parent="."]
+script = ExtResource("2_i70nl")
+
+[node name="MainTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 80.0
+offset_right = 400.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 40
+text = "JOURNEY COMPLETED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_top = 150.0
+offset_right = 156.0
+offset_bottom = 151.0
+grow_horizontal = 2
+color = Color(0.290196, 0.396078, 0.447059, 1)
+
+[node name="StatsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -115.0
+offset_right = 175.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7678q")
+
+[node name="PanelTitle" type="Label" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.5
+offset_right = 92.5
+offset_bottom = 25.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 20
+text = "PERFORMANCE ANALYSIS"
+
+[node name="Separator2" type="ColorRect" parent="StatsPanel"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 51.0
+color = Color(0.290196, 0.396078, 0.447059, 1)
+
+[node name="TimeLabel" type="Label" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 60.0
+offset_right = 66.0
+offset_bottom = 85.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "COMPLETION TIME"
+
+[node name="CollectiblesLabel" type="Label" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 100.0
+offset_right = 66.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "COLLECTIBLES"
+
+[node name="AccuracyLabel" type="Label" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 140.0
+offset_right = 66.0
+offset_bottom = 165.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "ACCURACY"
+
+[node name="ScoreLabel" type="Label" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 180.0
+offset_right = 66.0
+offset_bottom = 205.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "SCORE"
+
+[node name="TimeValue" type="Label" parent="StatsPanel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 60.0
+offset_right = 284.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "23:40"
+horizontal_alignment = 2
+
+[node name="CollectiblesValue" type="Label" parent="StatsPanel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 284.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "3/10"
+horizontal_alignment = 2
+
+[node name="AccuracyValue" type="Label" parent="StatsPanel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 140.0
+offset_right = 284.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "93%"
+horizontal_alignment = 2
+
+[node name="ScoreValue" type="Label" parent="StatsPanel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 180.0
+offset_right = 288.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+text = "14,231"
+horizontal_alignment = 2
+
+[node name="RatingDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -173.0
+offset_right = 29.5
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 64
+text = "A+"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 496.0
+offset_right = 481.0
+offset_bottom = 536.0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_6x60d")
+text = "RESTART"
+script = ExtResource("4_5cw1r")
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 669.0
+offset_top = 496.0
+offset_right = 839.0
+offset_bottom = 536.0
+theme_override_fonts/font = ExtResource("3_qar6k")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_6x60d")
+text = "MAIN MENU"
+script = ExtResource("5_tnx00")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mgabq")
+}
