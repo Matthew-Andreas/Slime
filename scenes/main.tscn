@@ -47,10 +47,6 @@ material = SubResource("StandardMaterial3D_jyhfs")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.475161, -0.961145, 8.6173)
 
 [node name="NPC" parent="." instance=ExtResource("3_sugp2")]
-<<<<<<< HEAD
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.411829, -0.971586, 1.0972)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_tbgi4")]
-=======
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419, -1.15719, 1.093)
->>>>>>> d2c04f5a13285a737e363bb69c3c923f870f4a5e
