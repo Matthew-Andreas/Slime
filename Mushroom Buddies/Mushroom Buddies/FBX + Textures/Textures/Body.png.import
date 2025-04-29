@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7piey6nbwmfj"
-path.s3tc="res://.godot/imported/Body.png-aefe5948e8ff843e29ab9e86cb80bb11.s3tc.ctex"
+path.s3tc="res://.godot/imported/Body.png-bdaeba8f02b24c400e3ffae03c2037bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/textures/Body.png"
-dest_files=["res://.godot/imported/Body.png-aefe5948e8ff843e29ab9e86cb80bb11.s3tc.ctex"]
+source_file="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Textures/Body.png"
+dest_files=["res://.godot/imported/Body.png-bdaeba8f02b24c400e3ffae03c2037bc.s3tc.ctex"]
 
 [params]
 
