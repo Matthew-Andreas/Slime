@@ -9,10 +9,10 @@ func spawnPlatform(platform_position: Vector3) -> Vector3:
 	add_child(platform)
 	return platform.position	
 	
-func calcNewPosition(prev_position: Vector3):
-	var next_x = prev_position.x + randi_range(-5, 5)
+func calcNewPosition(prev_position: Vector3, difficulty: int):
+	var next_x = randi_range(0, difficulty) + 0.5
 	var next_y = prev_position.y + 1
-	var next_z = prev_position.z + randi_range(-5, 5)
+	var next_z = randi_range(0, difficulty) + 0.5
 	
 	var next_position = Vector3(
 		next_x,
@@ -22,16 +22,15 @@ func calcNewPosition(prev_position: Vector3):
 	
 	return next_position
 
-func spawnPlatforms(amount: int):
-	var next_position = Vector3(5, 0, 5)
+func spawnPlatforms(amount: int, difficulty: int):
+	var next_position = Vector3(difficulty, 0, difficulty)
 	var prev_position
 	
 	for i in range(amount):
-		# Vector3(randi() % 7, (i), randi() % 8)
 		prev_position = spawnPlatform(next_position)
-		next_position = calcNewPosition(prev_position)
+		next_position = calcNewPosition(prev_position, difficulty)
 	pass
 	
 func _ready():
-	spawnPlatforms(50)
+	spawnPlatforms(100, 5)
 	pass

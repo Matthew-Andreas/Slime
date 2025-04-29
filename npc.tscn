@@ -1,7 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfit6uhenhacm"]
+[gd_scene load_steps=8 format=3 uid="uid://cfit6uhenhacm"]
 
 [ext_resource type="PackedScene" uid="uid://bh641rltfxwvm" path="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Mushroom_flat_shiitake.fbx" id="1_ideak"]
+[ext_resource type="Script" uid="uid://ba1x87axwwrwr" path="res://npc.gd" id="1_xxcha"]
+
+[sub_resource type="Animation" id="Animation_xxcha"]
+resource_name = "NPC Pop_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mushroom_flat_shiitake:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kh24r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mushroom_flat_shiitake:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ul7y6"]
+_data = {
+&"NPC Pop_up": SubResource("Animation_xxcha"),
+&"RESET": SubResource("Animation_kh24r")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxcha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ideak"]
 
 [node name="NPC" type="Node3D"]
+script = ExtResource("1_xxcha")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ul7y6")
+}
 
 [node name="Mushroom_flat_shiitake" parent="." instance=ExtResource("1_ideak")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Mushroom_flat_shiitake"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2.0283, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_flat_shiitake/Area3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_xxcha")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mushroom_flat_shiitake"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_flat_shiitake/StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.284927, 0)
+shape = SubResource("BoxShape3D_ideak")
+
+[connection signal="body_entered" from="Mushroom_flat_shiitake/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Mushroom_flat_shiitake/Area3D" to="." method="_on_area_3d_body_exited"]
