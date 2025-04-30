@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfit6uhenhacm"]
+[gd_scene load_steps=9 format=3 uid="uid://cfit6uhenhacm"]
 
 [ext_resource type="PackedScene" uid="uid://bh641rltfxwvm" path="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Mushroom_flat_shiitake.fbx" id="1_ideak"]
 [ext_resource type="Script" uid="uid://ba1x87axwwrwr" path="res://npc.gd" id="1_xxcha"]
+[ext_resource type="Resource" uid="uid://88r05sh7pxkb" path="res://dialogue/main.dialogue" id="2_kh24r"]
 
 [sub_resource type="Animation" id="Animation_xxcha"]
 resource_name = "NPC Pop_up"
@@ -47,6 +48,7 @@ size = Vector3(1, 0.783325, 1)
 
 [node name="NPC" type="Node3D"]
 script = ExtResource("1_xxcha")
+dialogue_resource = ExtResource("2_kh24r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
