@@ -1,36 +1,108 @@
 extends Node3D
-@onready var main = $"."
 
-func spawnPlatform(platform_position: Vector3) -> Vector3:
-	var platform_scene = preload("res://scenes/platform.tscn")
-	var platform = platform_scene.instantiate()
-	platform.position = platform_position
-	print("Platform: " + str(platform.position))
-	add_child(platform)
-	return platform.position	
+@export var platform_count = 100
+@export var platform_difficulty = 5
+@export var heart_rate: float = 0.3
+var platform_positions: Array
+
+func spawnScene(
+	scene_position: Vector3,
+	scene_resource: Resource,
+	scene_scale: Vector3 = Vector3(1, 1, 1)
+) -> Vector3:
 	
-func calcNewPosition(prev_position: Vector3, difficulty: int):
+	var scene = scene_resource.instantiate()
+	
+	scene.position = scene_position
+	scene.scale = scene_scale
+	add_child(scene)
+	
+	return scene.position	
+
+func nextPlatformPosition(prev_position: Vector3, difficulty: int):
 	var next_x = randi_range(0, difficulty) + 0.5
 	var next_y = prev_position.y + 1
 	var next_z = randi_range(0, difficulty) + 0.5
 	
-	var next_position = Vector3(
-		next_x,
-		next_y,
-		next_z
-	)
+	var next_position = Vector3(next_x, next_y, next_z)
 	
 	return next_position
 
-func spawnPlatforms(amount: int, difficulty: int):
-	var next_position = Vector3(difficulty, 0, difficulty)
-	var prev_position
+func spawnPlatforms():
+	var platform_scene = preload("res://scenes/platform.tscn")
+	var next_platform_position = Vector3(
+		platform_difficulty,
+		0,
+		platform_difficulty
+	)
+	var prev_platform_position
 	
-	for i in range(amount):
-		prev_position = spawnPlatform(next_position)
-		next_position = calcNewPosition(prev_position, difficulty)
-	pass
+	# Spawn Platforms
+	for i in range(platform_count):
+		platform_positions.append(next_platform_position)
+		
+		prev_platform_position = spawnScene(
+			next_platform_position, 
+			platform_scene
+		)
+		
+		next_platform_position = nextPlatformPosition(
+			prev_platform_position,
+			platform_difficulty
+		)
+	
+func spawnItem(item_scene: Resource, item_rate: float, item_name: String):
+	var item_cnt = ceil(platform_count * (item_rate / platform_difficulty))
+	var next_item = floor(platform_count / item_cnt)
+	print(item_name + "s: " + str(item_cnt))
+	print("1 " + item_name + " after every " + str(next_item) + " platforms.")
+	
+	var next_heart_position = Vector3(
+			platform_difficulty,
+			0.25,
+			platform_difficulty
+		)
+
+	for i in range(platform_positions.size()):
+		if i == next_item and item_cnt > 0:
+			spawnScene(
+				next_heart_position, 
+				item_scene,
+				Vector3(0.5, 0.5, 0.5)
+			)
+				
+			next_heart_position = platform_positions[i]
+			next_heart_position.y += 0.25
+			
+			item_cnt -= 1
+			next_item *= 2
 	
 func _ready():
-	spawnPlatforms(100, 5)
-	pass
+	spawnPlatforms()
+	
+	spawnItem(preload("res://scenes/heart.tscn"), 0.3, "heart")
+	#var heart_scene = preload("res://scenes/heart.tscn")
+	#var heart_cnt = ceil(platform_count * (heart_rate / platform_difficulty))
+	#var next_heart = floor(platform_count / heart_cnt)
+	#print("Hearts: " + str(heart_cnt))
+	#print("1 heart after every " + str(next_heart) + " platforms.")
+	#
+	#var next_heart_position = Vector3(
+			#platform_difficulty,
+			#0.25,
+			#platform_difficulty
+		#)
+#
+	#for i in range(platform_positions.size()):
+		#if i == next_heart and heart_cnt > 0:
+			#spawnScene(
+				#next_heart_position, 
+				#heart_scene,
+				#Vector3(0.5, 0.5, 0.5)
+			#)
+				#
+			#next_heart_position = platform_positions[i]
+			#next_heart_position.y += 0.25
+			#
+			#heart_cnt -= 1
+			#next_heart *= 2
