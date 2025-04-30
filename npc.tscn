@@ -59,7 +59,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2.0283, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_flat_shiitake/Area3D"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_xxcha")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mushroom_flat_shiitake"]
