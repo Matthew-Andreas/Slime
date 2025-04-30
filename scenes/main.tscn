@@ -1,6 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=27 format=3 uid="uid://dovymemhyh1ci"]
 
-[ext_resource type="Script" uid="uid://bvv2xv8a7ghx6" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cnx2wv0lej6l7" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-B.png" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cfit6uhenhacm" path="res://npc.tscn" id="3_sugp2"]
@@ -90,7 +89,6 @@ size = Vector3(10, 1, 3)
 size = Vector3(10, 1, 3)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_o5qli")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jyhfs")

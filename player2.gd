@@ -39,7 +39,8 @@ func _physics_process(delta: float) -> void:
 		somethingHappened = true
 	else:
 		jumping = false
-
+		GameManager.set_player_height(self.position.y)
+		
 		# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		slime.animationType("Jump_Move")

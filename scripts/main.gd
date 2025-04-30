@@ -3,8 +3,19 @@ extends Node3D
 @export var platform_count = 100
 @export var platform_difficulty = 2
 @export var heart_rate: float = 0.3
+@export var player_health = 3
+
 var platform_positions: Array
 
+var current_player_height: float
+
+func set_player_height(player_height: float):
+	if player_height <= current_player_height - 10:
+		player_health -= 1
+
+	current_player_height = player_height
+	
+	print(player_health)
 func spawnScene(
 	scene_position: Vector3,
 	scene_resource: Resource,
@@ -78,28 +89,3 @@ func _ready():
 	spawnPlatforms()
 	
 	spawnItem(preload("res://scenes/heart.tscn"), 0.3, "heart")
-	#var heart_scene = preload("res://scenes/heart.tscn")
-	#var heart_cnt = ceil(platform_count * (heart_rate / platform_difficulty))
-	#var next_heart = floor(platform_count / heart_cnt)
-	#print("Hearts: " + str(heart_cnt))
-	#print("1 heart after every " + str(next_heart) + " platforms.")
-	#
-	#var next_heart_position = Vector3(
-			#platform_difficulty,
-			#0.25,
-			#platform_difficulty
-		#)
-#
-	#for i in range(platform_positions.size()):
-		#if i == next_heart and heart_cnt > 0:
-			#spawnScene(
-				#next_heart_position, 
-				#heart_scene,
-				#Vector3(0.5, 0.5, 0.5)
-			#)
-				#
-			#next_heart_position = platform_positions[i]
-			#next_heart_position.y += 0.25
-			#
-			#heart_cnt -= 1
-			#next_heart *= 2

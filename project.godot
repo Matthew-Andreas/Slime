@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 BgMusic="*res://Audio/bg_music.tscn"
+GameManager="*res://scripts/main.gd"
 
 [editor_plugins]
 
