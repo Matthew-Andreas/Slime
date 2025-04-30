@@ -41,21 +41,21 @@ size = Vector2(5, 5)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tbgi4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbgi4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
 albedo_texture = ExtResource("5_tefeu")
 metallic = 1.0
 metallic_texture = ExtResource("5_tipki")
 roughness_texture = ExtResource("7_choun")
 normal_enabled = true
 normal_texture = ExtResource("6_85g3d")
-uv1_scale = Vector3(50, 6, 1)
+uv1_scale = Vector3(125, 12, 6)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_tefeu"]
-material = SubResource("StandardMaterial3D_tbgi4")
-size = Vector2(50, 6)
+[sub_resource type="BoxMesh" id="BoxMesh_trceg"]
+material = SubResource("StandardMaterial3D_eb6dy")
+size = Vector3(50, 0.09, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6xl0"]
-size = Vector3(50, 0.01, 6)
+size = Vector3(50, 0.1, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
 albedo_texture = ExtResource("2_jyhfs")
@@ -116,8 +116,8 @@ skeleton = NodePath("../..")
 shape = SubResource("WorldBoundaryShape3D_tbgi4")
 
 [node name="Wall" type="MeshInstance3D" parent="BeginningArea"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2, 25, 0)
-mesh = SubResource("PlaneMesh_tefeu")
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.053, 24.999, 0)
+mesh = SubResource("BoxMesh_trceg")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningArea/Wall"]
@@ -126,8 +126,8 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_o6xl0")
 
 [node name="Wall2" type="MeshInstance3D" parent="BeginningArea"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2, 25, 0)
-mesh = SubResource("PlaneMesh_tefeu")
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.053, 24.999, 0)
+mesh = SubResource("BoxMesh_trceg")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningArea/Wall2"]
@@ -136,8 +136,8 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_o6xl0")
 
 [node name="Wall3" type="MeshInstance3D" parent="BeginningArea"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 25, 2)
-mesh = SubResource("PlaneMesh_tefeu")
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 24.999, -2.053)
+mesh = SubResource("BoxMesh_trceg")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningArea/Wall3"]
@@ -146,8 +146,8 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_o6xl0")
 
 [node name="Wall4" type="MeshInstance3D" parent="BeginningArea"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 25, -2)
-mesh = SubResource("PlaneMesh_tefeu")
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 24.999, 2.053)
+mesh = SubResource("BoxMesh_trceg")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningArea/Wall4"]
