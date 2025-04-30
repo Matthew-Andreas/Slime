@@ -43,6 +43,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_xxcha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ideak"]
+size = Vector3(1, 0.783325, 1)
 
 [node name="NPC" type="Node3D"]
 script = ExtResource("1_xxcha")
@@ -66,7 +67,7 @@ shape = SubResource("BoxShape3D_xxcha")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_flat_shiitake/StaticBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.284927, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.230758, 0)
 shape = SubResource("BoxShape3D_ideak")
 
 [connection signal="body_entered" from="Mushroom_flat_shiitake/Area3D" to="." method="_on_area_3d_body_entered"]
