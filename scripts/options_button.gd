@@ -11,6 +11,9 @@ var fullscreen: bool = false
 @onready var sfx_slider = $VolumeSettings/SFXVolumeContainer/SFXVolume/SFXSlider
 @onready var fullscreen_toggle = $DisplaySettings/FullScreenContainer/FullScreen/FullscreenToggle
 
+var pause_menu = null
+var is_from_pause_menu = false
+
 func _ready():
 	print("Options pressed")
 
@@ -24,11 +27,25 @@ func _ready():
 	
 # Load saved settings
 	load_settings()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func set_pause_menu(pause_menu_ref):
+		pause_menu = pause_menu_ref
+		is_from_pause_menu = true
+		
 
 func _on_back_pressed():
 	# Returns to the title screen
-	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+	if is_from_pause_menu:
+		queue_free()
+		pause_menu.set_paused(true)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 func _on_master_volume_changed(value):
 	master_volume = value
 	# Implement audio bus volume change like line below
