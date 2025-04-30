@@ -19,10 +19,10 @@ func spawnScene(
 	
 	return scene.position	
 
-func nextPlatformPosition(prev_position: Vector3, difficulty: int):
-	var next_x = randi_range(0, difficulty) + 0.5
+func calcNewPosition(prev_position: Vector3, difficulty: int):
+	var next_x = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
 	var next_y = prev_position.y + 1
-	var next_z = randi_range(0, difficulty) + 0.5
+	var next_z = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
 	
 	var next_position = Vector3(next_x, next_y, next_z)
 	
