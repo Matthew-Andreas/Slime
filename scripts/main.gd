@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var platform_count = 100
-@export var platform_difficulty = 5
+@export var platform_difficulty = 2
 @export var heart_rate: float = 0.3
 var platform_positions: Array
 
@@ -19,7 +19,7 @@ func spawnScene(
 	
 	return scene.position	
 
-func calcNewPosition(prev_position: Vector3, difficulty: int):
+func nextPlatformPosition(prev_position: Vector3, difficulty: int):
 	var next_x = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
 	var next_y = prev_position.y + 1
 	var next_z = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
@@ -31,9 +31,9 @@ func calcNewPosition(prev_position: Vector3, difficulty: int):
 func spawnPlatforms():
 	var platform_scene = preload("res://scenes/platform.tscn")
 	var next_platform_position = Vector3(
-		platform_difficulty,
 		0,
-		platform_difficulty
+		0,
+		0
 	)
 	var prev_platform_position
 	
@@ -57,11 +57,8 @@ func spawnItem(item_scene: Resource, item_rate: float, item_name: String):
 	print(item_name + "s: " + str(item_cnt))
 	print("1 " + item_name + " after every " + str(next_item) + " platforms.")
 	
-	var next_heart_position = Vector3(
-			platform_difficulty,
-			0.25,
-			platform_difficulty
-		)
+	var next_heart_position = platform_positions[0]
+	next_heart_position.y += 0.25
 
 	for i in range(platform_positions.size()):
 		if i == next_item and item_cnt > 0:
