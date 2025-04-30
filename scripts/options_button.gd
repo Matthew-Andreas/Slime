@@ -11,36 +11,79 @@ var fullscreen: bool = false
 @onready var sfx_slider = $VolumeSettings/SFXVolumeContainer/SFXVolume/SFXSlider
 @onready var fullscreen_toggle = $DisplaySettings/FullScreenContainer/FullScreen/FullscreenToggle
 
+var pause_menu = null
+var is_from_pause_menu = false
+
 func _ready():
 	print("Options pressed")
 
+	call_deferred("_set_mouse_visible")  # << important
+	load_settings()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	#process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	if master_slider: master_slider.value_changed.connect(_on_master_volume_changed)
-	if music_slider: music_slider.value_changed.connect(_on_music_volume_changed)
-	if sfx_slider: sfx_slider.value_changed.connect(_on_sfx_volume_changed)
-	if fullscreen_toggle: fullscreen_toggle.toggled.connect(_on_fullscreen_toggled)
+	#if master_slider: master_slider.value_changed.connect(_on_master_volume_changed)
+	#if music_slider: music_slider.value_changed.connect(_on_music_volume_changed)
+	#if sfx_slider: sfx_slider.value_changed.connect(_on_sfx_volume_changed)
+	#if fullscreen_toggle: fullscreen_toggle.toggled.connect(_on_fullscreen_toggled)
+	if master_slider:
+		master_slider.value_changed.connect(_on_master_volume_changed)
+	if music_slider:
+		music_slider.value_changed.connect(_on_music_volume_changed)
+	if sfx_slider:
+		sfx_slider.value_changed.connect(_on_sfx_volume_changed)
+	if fullscreen_toggle:
+		fullscreen_toggle.toggled.connect(_on_fullscreen_toggled)
+
 	
 	$BackButton.pressed.connect(_on_back_pressed)
 	
 # Load saved settings
 	load_settings()
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _set_mouse_visible():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func set_pause_menu(pause_menu_ref):
+		pause_menu = pause_menu_ref
+		is_from_pause_menu = true
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+		
 
 func _on_back_pressed():
 	# Returns to the title screen
-	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+	if is_from_pause_menu:
+		queue_free()
+		pause_menu.set_paused(true)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 
+	call_deferred("_set_mouse_visible")
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 func _on_master_volume_changed(value):
 	master_volume = value
 	# Implement audio bus volume change like line below
 	# AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _on_music_volume_changed(value):
 	music_volume = value
 	#need to implement music bus volume change
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _on_sfx_volume_changed(value):
 	sfx_volume = value
 	#need to implement SFX bus volume change
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _on_fullscreen_toggled(button_pressed):
 	fullscreen = button_pressed
