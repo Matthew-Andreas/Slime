@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var platform_count = 100
-@export var platform_difficulty = 2
+@export var platform_count = 200
+@export var platform_difficulty: float = 2
 @export var heart_rate: float = 0.3
 @export var player_health = 3
 
@@ -30,26 +30,32 @@ func spawnScene(
 	return scene.position	
 
 func nextPlatformPosition(prev_position: Vector3, difficulty: int):
-	var next_x = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
-	var next_y = prev_position.y + 1
-	var next_z = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
+	#var next_x = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
+	var next_x: float = randi_range(0 , difficulty*2 ) #- 0.5
+	var next_y: float = prev_position.y + 1.0
+	#var next_z = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
+	var next_z: float = randi_range(0 , difficulty*2) #- 0.5
 	
-	var next_position = Vector3(next_x, next_y, next_z)
+	var next_position = Vector3((next_x/2.0)-(difficulty/2.0), next_y, (next_z/2.0)-(difficulty/2.0))
 	
 	return next_position
 
 func spawnPlatforms():
 	var platform_scene = preload("res://scenes/platform.tscn")
 	var next_platform_position = Vector3(
-		0,
-		0,
-		0
+		0.0,
+		0.0,
+		0.0
 	)
 	var prev_platform_position
+	
 	
 	# Spawn Platforms
 	for i in range(platform_count):
 		platform_positions.append(next_platform_position)
+		
+		if i % 50 == 0 and i != 0:
+			platform_difficulty += 1
 		
 		prev_platform_position = spawnScene(
 			next_platform_position, 
