@@ -15,7 +15,6 @@ func set_player_height(player_height: float):
 
 	current_player_height = player_height
 	
-	print(player_health)
 func spawnScene(
 	scene_position: Vector3,
 	scene_resource: Resource,

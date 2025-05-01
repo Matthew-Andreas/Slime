@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=31 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cnx2wv0lej6l7" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-B.png" id="2_jyhfs"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ctsqg7gvp0gjc" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-M.png" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://r6xoqg2x08fp" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-N.png" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://846bxl4mw0dr" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-R.png" id="12_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://6msl8n3b16uh" path="res://Material-LIB/Nature/SurfaceSoil/SurfaceSoil-B.png" id="12_eb6dy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -88,6 +89,17 @@ size = Vector3(10, 1, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eb6dy"]
 size = Vector3(10, 1, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+albedo_texture = ExtResource("12_eb6dy")
+uv1_scale = Vector3(20, 8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a8y0u"]
+material = SubResource("StandardMaterial3D_trceg")
+size = Vector3(1, 4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trceg"]
+size = Vector3(1, 4, 10)
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -98,7 +110,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 5, 50, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.31693, 50, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_tbgi4")]
 
@@ -193,3 +205,39 @@ skeleton = NodePath("../Floor3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor5/StaticBody3D"]
 shape = SubResource("BoxShape3D_eb6dy")
+
+[node name="SmallWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 51, 0)
+mesh = SubResource("BoxMesh_a8y0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SmallWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SmallWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_trceg")
+
+[node name="SmallWall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 51, 0)
+mesh = SubResource("BoxMesh_a8y0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SmallWall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SmallWall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_trceg")
+
+[node name="SmallWall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 51, 5.5)
+mesh = SubResource("BoxMesh_a8y0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SmallWall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SmallWall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_trceg")
+
+[node name="SmallWall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 51, -5.5)
+mesh = SubResource("BoxMesh_a8y0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SmallWall4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SmallWall4/StaticBody3D"]
+shape = SubResource("BoxShape3D_trceg")
