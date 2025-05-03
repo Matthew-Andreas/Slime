@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwo7du3w0fap"]
+
+[ext_resource type="Script" uid="uid://bq0d2eeep6nup" path="res://scripts/shopkeeper.gd" id="1_dvnb0"]
+[ext_resource type="Resource" uid="uid://cyh01xsfcxhef" path="res://dialogue/shopkeeper.dialogue" id="2_grjja"]
+[ext_resource type="PackedScene" uid="uid://qg7p2he7om1e" path="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Mushroom_red_cartoon.fbx" id="3_rwo8t"]
+[ext_resource type="Script" uid="uid://blgy0aqemsya5" path="res://scripts/shop_interaction_area.gd" id="4_c5swx"]
+[ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="5_shle0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vq5ul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0010"]
+
+[node name="Shopkeeper" type="Node3D"]
+script = ExtResource("1_dvnb0")
+dialogue_resource = ExtResource("2_grjja")
+
+[node name="Mushroom_red_cartoon" parent="." instance=ExtResource("3_rwo8t")]
+
+[node name="ShopInteractionArea" type="Area3D" parent="Mushroom_red_cartoon"]
+script = ExtResource("4_c5swx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_red_cartoon/ShopInteractionArea"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_vq5ul")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mushroom_red_cartoon"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_red_cartoon/StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_f0010")
+
+[node name="ShopUI" type="CanvasLayer" parent="."]
+
+[node name="ShopPanel" type="Panel" parent="ShopUI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OptionBox" type="VBoxContainer" parent="ShopUI/ShopPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Powerup_1" type="Button" parent="ShopUI/ShopPanel/OptionBox"]
+layout_mode = 2
+text = "Speed Boost - 10 Gems"
+
+[node name="Powerup_2" type="Button" parent="ShopUI/ShopPanel/OptionBox"]
+layout_mode = 2
+text = "Health Boost - 15 Gems"
+
+[node name="Powerup_3" type="Button" parent="ShopUI/ShopPanel/OptionBox"]
+layout_mode = 2
+text = "Double Jump - 20 Gems"
+
+[node name="Exit" type="Button" parent="ShopUI/ShopPanel/OptionBox"]
+layout_mode = 2
+text = "Nothing, thanks!"
+
+[node name="InteractionHint" type="Label3D" parent="."]
+billboard = 1
+text = "Press E to talk!"
+font = ExtResource("5_shle0")
+
+[connection signal="body_entered" from="Mushroom_red_cartoon/ShopInteractionArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Mushroom_red_cartoon/ShopInteractionArea" to="." method="_on_area_3d_body_exited"]

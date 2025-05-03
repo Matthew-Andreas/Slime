@@ -1,0 +1,53 @@
+~ start
+Shopkeeper: Hello there, little slime! Looking for some special powerups?
+Shopkeeper: I've got just what you need to help you on your adventure!
+- Tell me what you have for sale.
+  Shopkeeper: I have several magical powerups that could help a slime like you.
+  Shopkeeper: Just check out my selection below and see if anything catches your eye!
+- What are you selling
+	=> shop_options
+	=> END
+#- Speed Boost 5 Gems
+	#Shopkeeper: Here you go!
+	#=> END
+#- Dobule Jump 10 Gems
+	#Shopkeeper: Have fun!
+	#=> END
+#- Nothing, thank you
+	#Shopkeeper: Sounds good, see you soon!
+	#=> END
+
+- Why are you selling powerups in this strange place?
+  Shopkeeper: Oh, you know, a merchant goes where the customers are!
+  Shopkeeper: And with all the dangers in this world, adventurers like you always need an edge.
+  Shopkeeper: Plus, I like the scenery here. Very... fun!
+- What are you selling
+	=> shop_options
+	=> END
+
+
+- How do I use these powerups?
+Shopkeeper: It's simple! Once you buy one, I'll infuse you with its magic.
+Shopkeeper: The Double Jump lets you jump again while in the air - just press the jump button twice!
+Shopkeeper: The Speed Boost makes you zip around much faster for a short time.
+Shopkeeper: Now, what would you like to purchase today?
+- What are you selling
+	Shopkeeper: Here are the options!
+	=> shop_options
+	=> END
+
+~ shop_options
+- Speed Boost 5 Gems
+	Slime: I'll take the speed boost!
+	Shopkeeper: Here you go! 
+	=> END
+- Dobule Jump 10 Gems
+	Slime: I'll try the double jump
+	Shopkeeper: Have fun!
+	=> END
+- Nothing, thank you
+	Slime: I think I'm good.
+	Shopkeeper: Sounds good, see you soon!
+	=> END
+
+=> END

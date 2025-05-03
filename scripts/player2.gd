@@ -13,8 +13,15 @@ var sense_horizontal = 0.2
 var sense_vertical = 0.2
 var mouse_captured : bool = false
 
+#for shopkeeper npc
+var can_interact_with_shopkeeper = false
+var current_shopkeeper: Node = null
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	#for shopkeeper
+	add_to_group("Player")  # ← this line makes your player detectable
 
 func _input(event):
 	if(event is InputEventMouseMotion):
@@ -31,6 +38,7 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

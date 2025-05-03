@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=50 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cnx2wv0lej6l7" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-B.png" id="2_jyhfs"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b44foh4sy3fqd" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-M.png" id="5_tipki"]
 [ext_resource type="Texture2D" uid="uid://swl4ml7kkjve" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-N.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://b0m6lbynlxm6x" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-R.png" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://bwo7du3w0fap" path="res://scenes/Shopkeeper.tscn" id="8_0ld40"]
 [ext_resource type="Texture2D" uid="uid://ctsqg7gvp0gjc" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-M.png" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://r6xoqg2x08fp" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-N.png" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://846bxl4mw0dr" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-R.png" id="12_a8y0u"]
@@ -229,6 +230,9 @@ shape = SubResource("BoxShape3D_o6xl0")
 
 [node name="NPC" parent="BeginningArea" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.2, -1)
+
+[node name="Shopkeeper" parent="BeginningArea" instance=ExtResource("8_0ld40")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="2nd-floor-objects" type="Node3D" parent="."]
 
