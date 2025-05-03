@@ -70,7 +70,7 @@ func _on_dialogue_ended(arg):
 func show_shop():
 	shop_ui.visible = true
 	#get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 #
 func close_shop():
 	shop_ui.visible = false

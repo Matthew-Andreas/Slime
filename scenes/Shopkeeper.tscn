@@ -67,3 +67,6 @@ font = ExtResource("5_shle0")
 
 [connection signal="body_entered" from="Mushroom_red_cartoon/ShopInteractionArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Mushroom_red_cartoon/ShopInteractionArea" to="." method="_on_area_3d_body_exited"]
+[connection signal="pressed" from="ShopUI/ShopPanel/OptionBox/Powerup_1" to="." method="_on_powerup_1_pressed"]
+[connection signal="pressed" from="ShopUI/ShopPanel/OptionBox/Powerup_2" to="." method="_on_powerup_2_pressed"]
+[connection signal="pressed" from="ShopUI/ShopPanel/OptionBox/Powerup_3" to="." method="_on_powerup_3_pressed"]
