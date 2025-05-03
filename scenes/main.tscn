@@ -247,9 +247,6 @@ shape = SubResource("BoxShape3D_o6xl0")
 [node name="NPC" parent="BeginningArea" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.2, -1)
 
-[node name="Shopkeeper" parent="BeginningArea" instance=ExtResource("8_0ld40")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-
 [node name="2nd-floor-objects" type="Node3D" parent="."]
 
 [node name="Floor2" type="MeshInstance3D" parent="2nd-floor-objects"]
@@ -415,6 +412,9 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="2nd-floor-objects/2nd-levelWall4/StaticBody3D"]
 shape = SubResource("BoxShape3D_dp3eg")
 
+[node name="Shopkeeper" parent="2nd-floor-objects" instance=ExtResource("8_0ld40")]
+transform = Transform3D(0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, 0.141421, -4, 49.8, -4)
+
 [node name="GroundFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 100.01, 0)
 mesh = SubResource("BoxMesh_0ld40")
@@ -452,6 +452,9 @@ mesh = SubResource("BoxMesh_yc10j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundFloor4/StaticBody3D"]
 shape = SubResource("BoxShape3D_gqmmt")
 
+[node name="GroundShopkeeper" parent="." instance=ExtResource("8_0ld40")]
+transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, -5.84, 100.298, -5.904)
+
 [node name="Cloud" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 150, 0)
 mesh = SubResource("BoxMesh_gqmmt")
@@ -487,6 +490,9 @@ mesh = SubResource("BoxMesh_pm3ni")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cloud4/StaticBody3D"]
 shape = SubResource("BoxShape3D_jscy8")
+
+[node name="CloudShopkeeper" parent="." instance=ExtResource("8_0ld40")]
+transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, -5.84, 150.298, -5.904)
 
 [node name="SpaceStationFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 200, 0)
