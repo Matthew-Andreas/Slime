@@ -59,7 +59,7 @@ func _on_dialogue_ended(arg):
 	# Add custom logic to check if the dialogue has reached its expected end point
 	if "shop_options" in arg.titles:
 		print("Dialogue reached 'shop_options'")
-		get_tree().paused = true  # Pause the game to show the shop
+		#get_tree().paused = true  # Pause the game to show the shop
 		show_shop()
 	else:
 		print("Dialogue not yet finished, or unexpected argument:", arg)
@@ -69,7 +69,7 @@ func _on_dialogue_ended(arg):
 #
 func show_shop():
 	shop_ui.visible = true
-	get_tree().paused = true
+	#get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 #
 func close_shop():
