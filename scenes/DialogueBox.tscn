@@ -1,13 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd0e88v7v2jk8"]
+[gd_scene load_steps=3 format=3 uid="uid://cd0e88v7v2jk8"]
 
 [ext_resource type="Script" uid="uid://c3fbvv1lhrct" path="res://scripts/dialogue_box.gd" id="1_1n5wf"]
+[ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="2_pe8jb"]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_1n5wf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_1n5wf")
+
+[node name="DialogueText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_right = 750.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("2_pe8jb")
+theme_override_font_sizes/font_size = 16
+
+[node name="SpeakerLabel" type="Label" parent="DialogueText"]
+layout_mode = 0
+offset_left = -250.0
+offset_right = -210.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_pe8jb")
+theme_override_font_sizes/font_size = 18
+text = "ShopKeeper"
+
+[node name="DialogueText" type="Label" parent="DialogueText"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ChoicesContainer" type="HBoxContainer" parent="DialogueText"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Choice1" type="Button" parent="DialogueText/ChoicesContainer"]
+layout_mode = 2

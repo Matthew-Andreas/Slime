@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=10 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="2_nlsx6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -52,6 +53,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
+default_font = ExtResource("2_nlsx6")
 default_font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
@@ -126,10 +128,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -147.0
-offset_top = -558.0
-offset_right = 494.0
-offset_bottom = -154.0
+offset_left = -288.0
+offset_top = -429.0
+offset_right = 353.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 

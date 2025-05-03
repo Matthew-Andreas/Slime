@@ -5,7 +5,7 @@ var player_in_range = false
 var dialogue_finished = false  # Track when dialogue ends
 @onready var shop_interaction = $Mushroom_red_cartoon/ShopInteractionArea
 #@onready var shop_interaction = get_node("Mushroom_red_cartoon/ShopInteraction")
-@onready var dialogue_box = $DialogueBox
+#@onready var dialogue_box = $DialogueBox
 
 var resource_path = "res://dialogue/shopkeeper.dialogue"  
 
