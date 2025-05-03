@@ -5,5 +5,6 @@ func _on_body_entered(body: Node3D) -> void:
 		GameManager.set_player_money(
 			GameManager.player_money + 1
 		)
+		print(GameManager.player_money)
 		
 		self.queue_free()
