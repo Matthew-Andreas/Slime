@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 			if dialogue_resource:
 				DialogueManager.show_dialogue_balloon(dialogue_resource)
 
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body.name == "Player"):
 		#var new_pos = Vector3(self.position.x,self.position.y+0.200,self.position.z);
@@ -29,6 +30,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	if(body.name == "Player"):
 		#var new_pos = Vector3(self.position.x,self.position.y-0.200,self.position.z);
 		#self.position = new_pos;
-		player_in_range = true
+		player_in_range = false
 		animation_player.play_backwards("NPC Pop_up")
 	pass # Replace with function body.

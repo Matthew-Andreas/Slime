@@ -23,7 +23,7 @@ GameManager="*res://scripts/main.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 
