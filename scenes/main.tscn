@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b44foh4sy3fqd" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-M.png" id="5_tipki"]
 [ext_resource type="Texture2D" uid="uid://swl4ml7kkjve" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-N.png" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://b0m6lbynlxm6x" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-R.png" id="7_choun"]
-[ext_resource type="PackedScene" uid="uid://bwo7du3w0fap" path="res://scenes/Shopkeeper.tscn" id="8_0ld40"]
+[ext_resource type="PackedScene" path="res://scenes/Shopkeeper.tscn" id="8_0ld40"]
 [ext_resource type="Texture2D" uid="uid://ctsqg7gvp0gjc" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-M.png" id="10_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://r6xoqg2x08fp" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-N.png" id="11_trceg"]
 [ext_resource type="Texture2D" uid="uid://846bxl4mw0dr" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-R.png" id="12_a8y0u"]
