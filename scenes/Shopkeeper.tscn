@@ -20,7 +20,7 @@ dialogue_resource = ExtResource("2_grjja")
 script = ExtResource("4_c5swx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mushroom_red_cartoon/ShopInteractionArea"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1.43877, 0)
 shape = SubResource("BoxShape3D_vq5ul")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mushroom_red_cartoon"]
@@ -61,6 +61,7 @@ layout_mode = 2
 text = "Nothing, thanks!"
 
 [node name="InteractionHint" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92202, 0)
 billboard = 1
 text = "Press E to talk!"
 font = ExtResource("5_shle0")
