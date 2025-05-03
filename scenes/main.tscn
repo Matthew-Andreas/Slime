@@ -1,9 +1,9 @@
 [gd_scene load_steps=51 format=3 uid="uid://dovymemhyh1ci"]
 
-[ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://scenes/NormalSky.tres" id="1_gqmmt"]
+[ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://Skies/NormalSky.tres" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cnx2wv0lej6l7" path="res://Material-LIB/Nature/SurfaceGround/SurfaceGround-B.png" id="2_jyhfs"]
-[ext_resource type="Script" uid="uid://cjdy5p3cfsshf" path="res://scenes/world_environment.gd" id="2_yc10j"]
+[ext_resource type="Script" uid="uid://cjdy5p3cfsshf" path="res://scripts/world_environment.gd" id="2_yc10j"]
 [ext_resource type="PackedScene" uid="uid://cfit6uhenhacm" path="res://scenes/npc.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://chfxrfcwnf3lb" path="res://scenes/pause_menu.tscn" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cjipmmmu2n30t" path="res://Material-LIB/Nature/SurfaceRock/SurfaceRock-B.png" id="5_tefeu"]
