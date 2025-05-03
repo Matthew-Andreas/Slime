@@ -1,11 +1,10 @@
 extends Node3D
 
-@export var platform_count = 200
-@export var platform_difficulty: float = 2
-@export var heart_rate: float = 0.3
-@export var player_health = 3
+@export var player_health: float = 3
+var prev_player_health: float
+var player_health_ui: Array
 
-var platform_positions: Array
+@export var player_money: float = 0
 
 var current_player_height: float
 
@@ -14,7 +13,13 @@ func set_player_height(player_height: float):
 		player_health -= 1
 
 	current_player_height = player_height
-	
+
+func set_player_money(money: float):
+	player_money = money
+
+func set_player_health(health: float):
+	player_health = health
+
 func spawnScene(
 	scene_position: Vector3,
 	scene_resource: Resource,
@@ -30,23 +35,19 @@ func spawnScene(
 	return scene.position	
 
 func nextPlatformPosition(prev_position: Vector3, difficulty: int):
-	#var next_x = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
-	var next_x: float = randi_range(0 , difficulty*2 ) #- 0.5
+	var next_x: float = randi_range(0 , difficulty * 2)
 	var next_y: float = prev_position.y + 1.0
-	#var next_z = randi_range(0 - (difficulty/2), difficulty - (difficulty/2)) #- 0.5
-	var next_z: float = randi_range(0 , difficulty*2) #- 0.5
+	var next_z: float = randi_range(0 , difficulty * 2)
 	
 	var next_position = Vector3((next_x/2.0)-(difficulty/2.0), next_y, (next_z/2.0)-(difficulty/2.0))
 	
 	return next_position
 
-func spawnPlatforms():
+func spawnPlatforms(platform_count: int, platform_difficulty: int, start_position: Vector3) -> Array:
+	var platform_positions: Array
+	
 	var platform_scene = preload("res://scenes/platform.tscn")
-	var next_platform_position = Vector3(
-		0.0,
-		0.0,
-		0.0
-	)
+	var next_platform_position = start_position
 	var prev_platform_position
 	
 	
@@ -67,30 +68,119 @@ func spawnPlatforms():
 			platform_difficulty
 		)
 	
-func spawnItem(item_scene: Resource, item_rate: float, item_name: String):
-	var item_cnt = ceil(platform_count * (item_rate / platform_difficulty))
-	var next_item = floor(platform_count / item_cnt)
-	print(item_name + "s: " + str(item_cnt))
-	print("1 " + item_name + " after every " + str(next_item) + " platforms.")
+	return platform_positions
 	
-	var next_heart_position = platform_positions[0]
-	next_heart_position.y += 0.25
+func spawnItem(
+	item_scene: Resource,
+	item_rate: float,
+	item_name: String,
+	platform_positions: Array,
+	platform_count: int
+):
+	var item_cnt = ceil(platform_count * item_rate)
+	var next_item_step = floor(platform_count / item_cnt)
+	var next_item = next_item_step
+	print(item_name + "s: " + str(item_cnt) + " | 1 " + item_name + " after every " + str(next_item) + " platforms.")
+	
+	var next_item_position = platform_positions[0]
+	next_item_position.x += randf_range(-0.3, 0.3)
+	next_item_position.y += 0.25
+	next_item_position.z += randf_range(-0.3, 0.3)
+	
+	var item_scale = Vector3(0.5, 0.5, 0.5)
 
 	for i in range(platform_positions.size()):
+		
 		if i == next_item and item_cnt > 0:
+			
 			spawnScene(
-				next_heart_position, 
+				next_item_position, 
 				item_scene,
-				Vector3(0.5, 0.5, 0.5)
+				item_scale
 			)
 				
-			next_heart_position = platform_positions[i]
-			next_heart_position.y += 0.25
+			next_item_position = platform_positions[i]
+			next_item_position.x += randf_range(-0.3, 0.3)
+			next_item_position.y += 0.25
+			next_item_position.z += randf_range(-0.3, 0.3)
 			
 			item_cnt -= 1
-			next_item *= 2
+			next_item += next_item_step
+			
+			print("Item position: " + str(next_item_position))
 	
 func _ready():
-	spawnPlatforms()
+	prev_player_health = player_health
 	
-	spawnItem(preload("res://scenes/heart.tscn"), 0.3, "heart")
+	for i in range(prev_player_health):
+		var texture_rect = TextureRect.new()
+		var texture = load("res://2D Gems/heart.png")
+		texture_rect.texture = texture
+		texture_rect.scale = Vector2(0.0225, 0.0225)
+		texture_rect.position = Vector2(texture_rect.position.x + i * 45, texture_rect.position.y)
+		print(texture_rect.position)
+		add_child(texture_rect)
+		player_health_ui.append(texture_rect)
+		
+	var platform_positions = []
+	
+	# 0 - 50 platforms
+	platform_positions = spawnPlatforms(50, 2, Vector3(0, -0.1, 0))	
+	# Hearts
+	spawnItem(preload("res://scenes/heart.tscn"), 0.1, "heart", platform_positions, 50)
+	# Gem_7s
+	spawnItem(preload("res://scenes/gem_7.tscn"), 0.3, "gem_7", platform_positions, 50)
+	# Gem_1s
+	spawnItem(preload("res://scenes/gem_1.tscn"), 0.9, "gem_1", platform_positions, 50)
+	
+	# 50 - 100 platforms
+	platform_positions = spawnPlatforms(50, 3, Vector3(0, 50, 0))
+	# Hearts
+	spawnItem(preload("res://scenes/heart.tscn"), 0.075, "heart", platform_positions, 50)
+	# Gem_7s
+	spawnItem(preload("res://scenes/gem_7.tscn"), 0.8, "gem_7", platform_positions, 50)
+	# Gem_1s
+	spawnItem(preload("res://scenes/gem_1.tscn"), 0.25, "gem_1", platform_positions, 50)
+	
+	# 100 - 150 platforms
+	platform_positions = spawnPlatforms(50, 4, Vector3(0, 100, 0))
+	# Hearts
+	spawnItem(preload("res://scenes/heart.tscn"), 0.05, "heart", platform_positions, 50)
+	# Gem_7s
+	spawnItem(preload("res://scenes/gem_7.tscn"), 0.2, "gem_7", platform_positions, 50)
+	# Gem_1s
+	spawnItem(preload("res://scenes/gem_1.tscn"), 0.7, "gem_1", platform_positions, 50)
+	
+	# 150 - 200 platforms
+	platform_positions = spawnPlatforms(50, 5, Vector3(0, 150, 0))
+	# Hearts
+	spawnItem(preload("res://scenes/heart.tscn"), 0.025, "heart", platform_positions, 50)
+	# Gem_7s
+	spawnItem(preload("res://scenes/gem_7.tscn"), 0.6, "gem_7", platform_positions, 50)
+	# Gem_1s
+	spawnItem(preload("res://scenes/gem_1.tscn"), 0.15, "gem_1", platform_positions, 50)
+
+func _process(_delta: float) -> void:
+	if player_health == 0:
+		print("Player died")
+		if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
+			player_health_ui[player_health_ui.size() - 1].queue_free()
+		player_health = -1
+	else:
+		if prev_player_health > player_health:
+			if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
+				player_health_ui[player_health_ui.size() - 1].queue_free()
+				player_health_ui.resize(player_health_ui.size() - 1)
+			
+		if prev_player_health < player_health:
+			var texture_rect = TextureRect.new()
+			var texture = load("res://2D Gems/heart.png")
+			texture_rect.texture = texture
+			texture_rect.scale = Vector2(0.0225, 0.0225)
+			var prev_texture_rect = player_health_ui[player_health_ui.size() - 1]
+			texture_rect.position = Vector2(prev_texture_rect.position.x + 45, texture_rect.position.y)
+			print(texture_rect.position)
+			add_child(texture_rect)
+			player_health_ui.append(texture_rect)
+		
+	prev_player_health = player_health

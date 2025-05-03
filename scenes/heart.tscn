@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0y8sm2sc0ohf"]
+[gd_scene load_steps=7 format=3 uid="uid://b0y8sm2sc0ohf"]
 
 [ext_resource type="PackedScene" uid="uid://b7pfw0m6dvwr1" path="res://models/Heart.fbx" id="1_v30as"]
+[ext_resource type="Script" uid="uid://cct4redc22koi" path="res://scripts/add_health.gd" id="1_ycbwg"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_v30as"]
-radius = 0.247758
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v30as"]
+data = PackedVector3Array(-0.1987, 0.4787, 0, -0.149, 0.4464, 0.05, -0.1879, 0.3632, 0.05, -0.1879, 0.3632, 0.05, -0.2506, 0.3676, 0, -0.1987, 0.4787, 0, -0.0004, 0.3999, -0.05, -0.0598, 0.4667, -0.05, -0.1631, 0.2269, -0.05, -0.1631, 0.2269, -0.05, 0, 0.0917, -0.05, -0.0004, 0.3999, -0.05, -0.1879, 0.3632, -0.05, -0.1631, 0.2269, -0.05, -0.0598, 0.4667, -0.05, -0.0598, 0.4667, -0.05, -0.149, 0.4464, -0.05, -0.1879, 0.3632, -0.05, -0.1879, 0.3632, -0.05, -0.149, 0.4464, -0.05, -0.1987, 0.4787, 0, -0.1987, 0.4787, 0, -0.2506, 0.3676, 0, -0.1879, 0.3632, -0.05, 0.1646, 0.2307, -0.05, 0.058, 0.4662, -0.05, -0.0004, 0.3999, -0.05, -0.0004, 0.3999, -0.05, 0, 0.0917, -0.05, 0.1646, 0.2307, -0.05, 0.0774, 0.505, 0, 0.058, 0.4662, -0.05, 0.1506, 0.4477, -0.05, 0.1506, 0.4477, -0.05, 0.2008, 0.4797, 0, 0.0774, 0.505, 0, -0.0006, 0.4167, 0, -0.0004, 0.3999, -0.05, 0.058, 0.4662, -0.05, 0.058, 0.4662, -0.05, 0.0774, 0.505, 0, -0.0006, 0.4167, 0, 0.2494, 0.3651, 0, 0.1871, 0.3617, -0.05, 0.1646, 0.2307, -0.05, 0.1646, 0.2307, -0.05, 0.2195, 0.191, 0, 0.2494, 0.3651, 0, -0.0598, 0.4667, -0.05, -0.0004, 0.3999, -0.05, -0.0006, 0.4167, 0, -0.0006, 0.4167, 0, -0.0798, 0.5057, 0, -0.0598, 0.4667, -0.05, 0.1871, 0.3617, -0.05, 0.1506, 0.4477, -0.05, 0.058, 0.4662, -0.05, 0.058, 0.4662, -0.05, 0.1646, 0.2307, -0.05, 0.1871, 0.3617, -0.05, -0.149, 0.4464, -0.05, -0.0598, 0.4667, -0.05, -0.0798, 0.5057, 0, -0.0798, 0.5057, 0, -0.1987, 0.4787, 0, -0.149, 0.4464, -0.05, -0.1631, 0.2269, -0.05, -0.1879, 0.3632, -0.05, -0.2506, 0.3676, 0, -0.2506, 0.3676, 0, -0.2175, 0.186, 0, -0.1631, 0.2269, -0.05, 0, 0.0917, -0.05, -0.1631, 0.2269, -0.05, -0.2175, 0.186, 0, -0.2175, 0.186, 0, 0.0001, 0.0057, 0, 0, 0.0917, -0.05, 0.2195, 0.191, 0, 0.1646, 0.2307, -0.05, 0, 0.0917, -0.05, 0, 0.0917, -0.05, 0.0001, 0.0057, 0, 0.2195, 0.191, 0, -0.1879, 0.3632, 0.05, -0.149, 0.4464, 0.05, -0.0598, 0.4667, 0.05, -0.0598, 0.4667, 0.05, -0.1631, 0.2269, 0.05, -0.1879, 0.3632, 0.05, 0.2195, 0.191, 0, 0.0001, 0.0057, 0, 0, 0.0917, 0.05, 0, 0.0917, 0.05, 0.1646, 0.2307, 0.05, 0.2195, 0.191, 0, -0.0004, 0.3999, 0.05, 0, 0.0917, 0.05, -0.1631, 0.2269, 0.05, -0.1631, 0.2269, 0.05, -0.0598, 0.4667, 0.05, -0.0004, 0.3999, 0.05, 0, 0.0917, 0.05, 0.0001, 0.0057, 0, -0.2175, 0.186, 0, -0.2175, 0.186, 0, -0.1631, 0.2269, 0.05, 0, 0.0917, 0.05, -0.1631, 0.2269, 0.05, -0.2175, 0.186, 0, -0.2506, 0.3676, 0, -0.2506, 0.3676, 0, -0.1879, 0.3632, 0.05, -0.1631, 0.2269, 0.05, -0.149, 0.4464, 0.05, -0.1987, 0.4787, 0, -0.0798, 0.5057, 0, -0.0798, 0.5057, 0, -0.0598, 0.4667, 0.05, -0.149, 0.4464, 0.05, -0.0004, 0.3999, 0.05, 0.058, 0.4662, 0.05, 0.1646, 0.2307, 0.05, 0.1646, 0.2307, 0.05, 0, 0.0917, 0.05, -0.0004, 0.3999, 0.05, -0.0598, 0.4667, 0.05, -0.0798, 0.5057, 0, -0.0006, 0.4167, 0, -0.0006, 0.4167, 0, -0.0004, 0.3999, 0.05, -0.0598, 0.4667, 0.05, 0.058, 0.4662, 0.05, 0.1506, 0.4459, 0.05, 0.1871, 0.36, 0.05, 0.1871, 0.36, 0.05, 0.1646, 0.2307, 0.05, 0.058, 0.4662, 0.05, 0.2494, 0.3651, 0, 0.2195, 0.191, 0, 0.1646, 0.2307, 0.05, 0.1646, 0.2307, 0.05, 0.1871, 0.36, 0.05, 0.2494, 0.3651, 0, -0.0006, 0.4167, 0, 0.0774, 0.505, 0, 0.058, 0.4662, 0.05, 0.058, 0.4662, 0.05, -0.0004, 0.3999, 0.05, -0.0006, 0.4167, 0, 0.2008, 0.4797, 0, 0.2494, 0.3651, 0, 0.1871, 0.36, 0.05, 0.1871, 0.36, 0.05, 0.1506, 0.4459, 0.05, 0.2008, 0.4797, 0, 0.2008, 0.4797, 0, 0.1506, 0.4477, -0.05, 0.1871, 0.3617, -0.05, 0.1871, 0.3617, -0.05, 0.2494, 0.3651, 0, 0.2008, 0.4797, 0, 0.0774, 0.505, 0, 0.2008, 0.4797, 0, 0.1506, 0.4459, 0.05, 0.1506, 0.4459, 0.05, 0.058, 0.4662, 0.05, 0.0774, 0.505, 0)
 
 [sub_resource type="Animation" id="Animation_ycbwg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:rotation")
+tracks/0/path = NodePath("Heart:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Heart:rotation")
+tracks/1/path = NodePath("Heart/Heart:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +35,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Heart/Heart:rotation")
+tracks/2/path = NodePath("CollisionShape3D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +52,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:rotation")
+tracks/0/path = NodePath("Heart:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,7 +64,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Heart:rotation")
+tracks/1/path = NodePath("Heart/Heart:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -75,7 +76,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Heart/Heart:rotation")
+tracks/2/path = NodePath("CollisionShape3D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -92,10 +93,10 @@ _data = {
 }
 
 [node name="Heart" type="Area3D"]
+script = ExtResource("1_ycbwg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264516, 0)
-shape = SubResource("SphereShape3D_v30as")
+shape = SubResource("ConcavePolygonShape3D_v30as")
 
 [node name="Heart" parent="." instance=ExtResource("1_v30as")]
 
@@ -107,5 +108,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_krgnv")
 }
 autoplay = "spin_to_win"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
 [editable path="Heart"]

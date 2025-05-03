@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://1ie0mw0wwurx"]
+
+[ext_resource type="PackedScene" uid="uid://blcecu0fohi4h" path="res://models/Gem1.fbx" id="1_j524x"]
+[ext_resource type="Script" uid="uid://ds5tevo2own8j" path="res://scripts/add_money.gd" id="1_ps0br"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j524x"]
+data = PackedVector3Array(0, 0.3417, 0.05, 0, 0.5083, 0, 0.25, 0.0083, 0, 0.25, 0.0083, 0, 0.125, 0.0917, 0.05, 0, 0.3417, 0.05, 0.125, 0.0917, -0.05, 0, 0.3417, -0.05, -0.125, 0.0917, -0.05, 0, 0.3417, -0.05, 0.125, 0.0917, -0.05, 0.25, 0.0083, 0, 0.25, 0.0083, 0, 0, 0.5083, 0, 0, 0.3417, -0.05, -0.125, 0.0917, -0.05, -0.25, 0.0083, 0, 0.25, 0.0083, 0, 0.25, 0.0083, 0, 0.125, 0.0917, -0.05, -0.125, 0.0917, -0.05, 0, 0.3417, -0.05, 0, 0.5083, 0, -0.25, 0.0083, 0, -0.25, 0.0083, 0, -0.125, 0.0917, -0.05, 0, 0.3417, -0.05, 0, 0.3417, 0.05, 0.125, 0.0917, 0.05, -0.125, 0.0917, 0.05, -0.125, 0.0917, 0.05, 0.125, 0.0917, 0.05, 0.25, 0.0083, 0, 0.25, 0.0083, 0, -0.25, 0.0083, 0, -0.125, 0.0917, 0.05, 0, 0.3417, 0.05, -0.125, 0.0917, 0.05, -0.25, 0.0083, 0, -0.25, 0.0083, 0, 0, 0.5083, 0, 0, 0.3417, 0.05)
+
+[sub_resource type="Animation" id="Animation_j50du"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gem1/Gem1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gem1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ps0br"]
+resource_name = "spin_to_win"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gem1/Gem1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gem1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syhu7"]
+_data = {
+&"RESET": SubResource("Animation_j50du"),
+&"spin_to_win": SubResource("Animation_ps0br")
+}
+
+[node name="Gem1" type="Area3D"]
+script = ExtResource("1_ps0br")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_j524x")
+
+[node name="Gem1" parent="." instance=ExtResource("1_j524x")]
+
+[node name="Gem1" parent="Gem1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_syhu7")
+}
+autoplay = "spin_to_win"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="Gem1"]
