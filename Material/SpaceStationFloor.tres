@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" load_steps=8 format=3 uid="uid://dojpqd0m67cb"]
+
+[ext_resource type="Texture2D" uid="uid://cqmpng7qnr5g1" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_basecolor.jpg" id="1_rf32p"]
+[ext_resource type="Texture2D" uid="uid://c5asrblvpwbig" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_ambientocclusion.jpg" id="2_cpuco"]
+[ext_resource type="Texture2D" uid="uid://3hoj84v54tn2" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_glossiness.jpg" id="3_e8tij"]
+[ext_resource type="Texture2D" uid="uid://bebunnytv8171" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_height.jpg" id="4_0w4wc"]
+[ext_resource type="Texture2D" uid="uid://muvccaoa5na8" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_metallic.jpg" id="5_h644g"]
+[ext_resource type="Texture2D" uid="uid://3dvf8sfvxnia" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_normal.jpg" id="6_jjueo"]
+[ext_resource type="Texture2D" uid="uid://b7o4tvd5d151i" path="res://4k JPEG/Scifi_Panels_01/Scifi_Panels_01_roughness.jpg" id="7_22npf"]
+
+[resource]
+albedo_texture = ExtResource("1_rf32p")
+metallic = 1.0
+metallic_texture = ExtResource("5_h644g")
+roughness_texture = ExtResource("7_22npf")
+normal_enabled = true
+normal_texture = ExtResource("6_jjueo")
+clearcoat_enabled = true
+clearcoat_texture = ExtResource("3_e8tij")
+ao_enabled = true
+ao_texture = ExtResource("2_cpuco")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_0w4wc")
+uv1_scale = Vector3(6, 12, 1)

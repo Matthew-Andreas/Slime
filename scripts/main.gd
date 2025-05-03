@@ -3,6 +3,8 @@ extends Node3D
 @export var player_health: float = 3
 var prev_player_health: float
 var player_health_ui: Array
+const SPACE_SKY:Sky = preload("res://Skies/SpaceSky.tres")
+const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 
 @export var player_money: float = 0
 

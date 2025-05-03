@@ -3,6 +3,7 @@ extends Node3D
 @export var dialogue_resource: DialogueResource  # assign this in the inspector
 var player_in_range = false
 var dialogue_finished = false  # Track when dialogue ends
+var isInteracting = false
 @onready var shop_interaction = $Mushroom_red_cartoon/ShopInteractionArea
 #@onready var shop_interaction = get_node("Mushroom_red_cartoon/ShopInteraction")
 #@onready var dialogue_box = $DialogueBox
@@ -15,6 +16,7 @@ var resource_path = "res://dialogue/shopkeeper.dialogue"
 @onready var powerup_2_button = $ShopUI/ShopPanel/OptionBox/Powerup_2
 @onready var powerup_3_button = $ShopUI/ShopPanel/OptionBox/Powerup_3
 @onready var exit_button = $ShopUI/ShopPanel/OptionBox/Exit
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -36,14 +38,17 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		player_in_range = true
+		animation_player.play("ShopKeeper-Popup")
 
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_range = false
+		animation_player.play_backwards("ShopKeeper-Popup")
 
 func _process(_delta):
 	if player_in_range and Input.is_action_just_pressed("interact"):
-		if dialogue_resource:
+		if dialogue_resource and not isInteracting:
+			isInteracting = true
 			DialogueManager.show_dialogue_balloon(dialogue_resource)
 
 
@@ -59,7 +64,7 @@ func _on_dialogue_ended(arg):
 	# Add custom logic to check if the dialogue has reached its expected end point
 	if "shop_options" in arg.titles:
 		print("Dialogue reached 'shop_options'")
-		get_tree().paused = true  # Pause the game to show the shop
+		#get_tree().paused = true  # Pause the game to show the shop
 		show_shop()
 	else:
 		print("Dialogue not yet finished, or unexpected argument:", arg)
@@ -69,8 +74,8 @@ func _on_dialogue_ended(arg):
 #
 func show_shop():
 	shop_ui.visible = true
-	get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#get_tree().paused = true
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 #
 func close_shop():
 	shop_ui.visible = false
