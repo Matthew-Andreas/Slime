@@ -3,6 +3,7 @@ extends Node3D
 @export var dialogue_resource: DialogueResource  # assign this in the inspector
 var player_in_range = false
 var dialogue_finished = false  # Track when dialogue ends
+var isInteracting = false
 @onready var shop_interaction = $Mushroom_red_cartoon/ShopInteractionArea
 #@onready var shop_interaction = get_node("Mushroom_red_cartoon/ShopInteraction")
 #@onready var dialogue_box = $DialogueBox
@@ -46,7 +47,8 @@ func _on_body_exited(body):
 
 func _process(_delta):
 	if player_in_range and Input.is_action_just_pressed("interact"):
-		if dialogue_resource:
+		if dialogue_resource and not isInteracting:
+			isInteracting = true
 			DialogueManager.show_dialogue_balloon(dialogue_resource)
 
 
