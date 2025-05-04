@@ -16,12 +16,14 @@ var mouse_captured : bool = false
 #for shopkeeper npc
 var can_interact_with_shopkeeper = false
 var current_shopkeeper: Node = null
+#var speed: float = 5.0
+#var jump_power: float = 6.0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	#for shopkeeper
-	add_to_group("Player")  # ← this line makes your player detectable
+	add_to_group("Player")  #this line makes your player detectable
 
 func _input(event):
 	if(event is InputEventMouseMotion):
