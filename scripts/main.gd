@@ -6,6 +6,8 @@ const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 @export var player_money: float = 3
 var money_label
 
+var hasDoubleJump = false
+
 @export var player_health: float = 3
 var prev_player_health: float
 var player_health_ui: Array
