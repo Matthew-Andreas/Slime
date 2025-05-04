@@ -1,14 +1,43 @@
 extends Node3D
 
-@export var player_health: float = 3
-var prev_player_health: float
-var player_health_ui: Array
 const SPACE_SKY:Sky = preload("res://Skies/SpaceSky.tres")
 const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 
-@export var player_money: float = 0
+@export var player_money: float = 3
+var money_label
+
+@export var player_health: float = 3
+var prev_player_health: float
+var player_health_ui: Array
 
 var current_player_height: float
+
+func update_money_ui():
+	money_label.set_text(" x " + str(player_money))
+	pass
+	
+func update_health_ui():
+	if player_health == 0:
+		print("Player died")
+		if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
+			player_health_ui[player_health_ui.size() - 1].queue_free()
+		player_health = -1
+	else:
+		if prev_player_health > player_health:
+			if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
+				player_health_ui[player_health_ui.size() - 1].queue_free()
+				player_health_ui.resize(player_health_ui.size() - 1)
+			
+		if prev_player_health < player_health:
+			var texture_rect = TextureRect.new()
+			var texture = load("res://2D Gems/heart.png")
+			texture_rect.texture = texture
+			texture_rect.scale = Vector2(0.0225, 0.0225)
+			var prev_texture_rect = player_health_ui[player_health_ui.size() - 1]
+			texture_rect.position = Vector2(prev_texture_rect.position.x + 45, texture_rect.position.y)
+			print(texture_rect.position)
+			add_child(texture_rect)
+			player_health_ui.append(texture_rect)
 
 func set_player_height(player_height: float):
 	if player_height <= current_player_height - 10:
@@ -123,6 +152,20 @@ func _ready():
 		print(texture_rect.position)
 		add_child(texture_rect)
 		player_health_ui.append(texture_rect)
+	
+	money_label = Label.new()
+	money_label.set_text(" x " + str(player_money))
+	money_label.position = Vector2(money_label.position.x + 40, money_label.position.y + 50)
+	money_label.size = Vector2(50, 50)
+	add_child(money_label)
+	
+	var texture_rect = TextureRect.new()
+	var texture = load("res://2D Gems/blue gem.png")
+	texture_rect.texture = texture
+	texture_rect.scale = Vector2(0.15, 0.15)
+	texture_rect.position = Vector2(texture_rect.position.x, texture_rect.position.y + 45)
+	print(texture_rect.position)
+	add_child(texture_rect)
 		
 	var platform_positions = []
 	
@@ -163,26 +206,7 @@ func _ready():
 	spawnItem(preload("res://scenes/gem_1.tscn"), 0.15, "gem_1", platform_positions, 50)
 
 func _process(_delta: float) -> void:
-	if player_health == 0:
-		print("Player died")
-		if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
-			player_health_ui[player_health_ui.size() - 1].queue_free()
-		player_health = -1
-	else:
-		if prev_player_health > player_health:
-			if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
-				player_health_ui[player_health_ui.size() - 1].queue_free()
-				player_health_ui.resize(player_health_ui.size() - 1)
-			
-		if prev_player_health < player_health:
-			var texture_rect = TextureRect.new()
-			var texture = load("res://2D Gems/heart.png")
-			texture_rect.texture = texture
-			texture_rect.scale = Vector2(0.0225, 0.0225)
-			var prev_texture_rect = player_health_ui[player_health_ui.size() - 1]
-			texture_rect.position = Vector2(prev_texture_rect.position.x + 45, texture_rect.position.y)
-			print(texture_rect.position)
-			add_child(texture_rect)
-			player_health_ui.append(texture_rect)
-		
+	update_health_ui()
 	prev_player_health = player_health
+	
+	update_money_ui()
