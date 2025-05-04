@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=85 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://Skies/NormalSky.tres" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cx0cq234xmy5o" path="res://Material-LIB/Nature/SurfaceSoil/SurfaceSoil-N.png" id="17_0ld40"]
 [ext_resource type="Texture2D" uid="uid://binoo7kxr67to" path="res://Material-LIB/Nature/SurfaceSoil/SurfaceSoil-R.png" id="18_gqmmt"]
 [ext_resource type="Material" uid="uid://dojpqd0m67cb" path="res://Material/SpaceStationFloor.tres" id="22_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://sqvmw1jncr26" path="res://scenes/end_player.tscn" id="23_c6pm6"]
 [ext_resource type="Material" uid="uid://crsyk77853ujh" path="res://Material/SpaceStationFloorSmall.tres" id="23_y6deb"]
 [ext_resource type="Texture2D" uid="uid://wl0kj1x702qb" path="res://4k JPEG/Scifi_Panels_04/Scifi_Panels_04_basecolor.jpg" id="24_fv21b"]
 [ext_resource type="Texture2D" uid="uid://13aeymd1l2q" path="res://4k JPEG/Scifi_Panels_04/Scifi_Panels_04_ambientocclusion.jpg" id="24_vxglm"]
@@ -607,6 +608,8 @@ mesh = SubResource("BoxMesh_kmb1v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpaceStationFloor/StaticBody3D"]
 shape = SubResource("BoxShape3D_fuf3a")
+
+[node name="EndPlayer" parent="SpaceStationFloor" instance=ExtResource("23_c6pm6")]
 
 [node name="SpaceStationFloor2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 200, 0)

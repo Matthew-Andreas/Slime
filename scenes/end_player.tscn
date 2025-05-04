@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://sqvmw1jncr26"]
+
+[ext_resource type="Script" uid="uid://c6u2gnb5tnaei" path="res://scripts/end_player.gd" id="1_jaf2t"]
+[ext_resource type="Resource" uid="uid://cs1nwg1cd1tln" path="res://dialogue/end.dialogue" id="2_qlin0"]
+[ext_resource type="PackedScene" uid="uid://biltypcgmr50k" path="res://Slime/Slime_fbx.fbx" id="3_g1qb2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1qb2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qn58v"]
+size = Vector3(1, 0.783325, 1)
+
+[node name="EndPlayer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129306, 0)
+script = ExtResource("1_jaf2t")
+dialogue_resource = ExtResource("2_qlin0")
+
+[node name="Slime_fbx" parent="." instance=ExtResource("3_g1qb2")]
+
+[node name="Area3D" type="Area3D" parent="Slime_fbx"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2.0283, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slime_fbx/Area3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_g1qb2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Slime_fbx"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slime_fbx/StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.230758, 0)
+shape = SubResource("BoxShape3D_qn58v")
+
+[connection signal="body_entered" from="Slime_fbx/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Slime_fbx/Area3D" to="." method="_on_area_3d_body_exited"]
