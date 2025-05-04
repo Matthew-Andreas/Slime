@@ -10,21 +10,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f0010"]
 
-[sub_resource type="Animation" id="Animation_dvnb0"]
-resource_name = "ShopKeeper-Popup"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mushroom_red_cartoon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.8, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_grjja"]
 length = 0.001
 tracks/0/type = "value"
@@ -38,6 +23,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dvnb0"]
+resource_name = "ShopKeeper-Popup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mushroom_red_cartoon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.8, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rwo8t"]
