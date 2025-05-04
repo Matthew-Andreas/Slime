@@ -4,6 +4,10 @@ extends CharacterBody3D
 @onready var slime: Node3D = $Visuals/Slime_glb
 @onready var visuals: Node3D = $Visuals
 @onready var camera: Camera3D = $SpringArm3D/Camera3D
+@onready var checkpoint_1: Node3D = $"../Checkpoint1"
+@onready var checkpoint_4: Node3D = $"../Checkpoint4"
+@onready var checkpoint_3: Node3D = $"../Checkpoint3"
+@onready var checkpoint_2: Node3D = $"../Checkpoint2"
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 6
@@ -14,6 +18,7 @@ var doublejumping = false
 var sense_horizontal = 0.2
 var sense_vertical = 0.2
 var mouse_captured : bool = false
+var currrent_Checkpoint = null
 
 #for shopkeeper npc
 var can_interact_with_shopkeeper = false
@@ -95,6 +100,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		release_mouse()
 
+	if Input.is_action_just_pressed("Respawn"):
+		if not currrent_Checkpoint == null and is_on_floor():
+			self.position = currrent_Checkpoint.position
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -129,3 +137,18 @@ func _physics_process(delta: float) -> void:
 	somethingHappened = false
 		
 	
+func _on_checkpoint_4_new_checkpoint(CP_Name: Variant) -> void:
+	currrent_Checkpoint = checkpoint_4
+	
+
+
+func _on_checkpoint_3_new_checkpoint(CP_Name: Variant) -> void:
+	currrent_Checkpoint = checkpoint_3
+
+
+func _on_checkpoint_2_new_checkpoint(CP_Name: Variant) -> void:
+	currrent_Checkpoint = checkpoint_2
+
+
+func _on_checkpoint_1_new_checkpoint(CP_Name: Variant) -> void:
+	currrent_Checkpoint = checkpoint_1
