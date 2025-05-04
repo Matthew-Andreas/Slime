@@ -47,8 +47,8 @@ func _ready():
 func _on_body_entered(body):
 	#if body.is_in_group("Player"):
 		#player_in_range = true
-		#animation_player.play("ShopKeeper-Popup")
 		if body.name == "Player":
+			animation_player.play("ShopKeeper-Popup")
 			player = body
 			player_in_range = true
 			label.visible = true
@@ -59,6 +59,7 @@ func _on_body_exited(body):
 		#player_in_range = false
 		#animation_player.play_backwards("ShopKeeper-Popup")
 	if body.name == "Player":
+		animation_player.play_backwards("ShopKeeper-Popup")
 		player_in_range = false
 		label.visible = false
 		player = null
