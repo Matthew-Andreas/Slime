@@ -32,7 +32,7 @@ func update_health_ui():
 			var texture_rect = TextureRect.new()
 			var texture = load("res://2D Gems/heart.png")
 			texture_rect.texture = texture
-			texture_rect.scale = Vector2(0.0225, 0.0225)
+			texture_rect.scale = Vector2(0.075, 0.075)
 			var prev_texture_rect = player_health_ui[player_health_ui.size() - 1]
 			texture_rect.position = Vector2(prev_texture_rect.position.x + 45, texture_rect.position.y)
 			print(texture_rect.position)
@@ -147,7 +147,7 @@ func _ready():
 		var texture_rect = TextureRect.new()
 		var texture = load("res://2D Gems/heart.png")
 		texture_rect.texture = texture
-		texture_rect.scale = Vector2(0.0225, 0.0225)
+		texture_rect.scale = Vector2(0.075, 0.075)
 		texture_rect.position = Vector2(texture_rect.position.x + i * 45, texture_rect.position.y)
 		print(texture_rect.position)
 		add_child(texture_rect)
