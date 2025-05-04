@@ -37,7 +37,7 @@ func update_health_ui():
 			texture_rect.position = Vector2(prev_texture_rect.position.x + 45, texture_rect.position.y)
 			print(texture_rect.position)
 			add_child(texture_rect)
-			player_health_ui.append(texture_rect)
+			player_health_ui.append(texture_rect) 
 
 func set_player_height(player_height: float):
 	if player_height <= current_player_height - 10:
