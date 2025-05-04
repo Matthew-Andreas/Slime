@@ -139,8 +139,6 @@ func close_shop():
 
 
 
-
-# Replace this with the correct player path if needed!
 func get_player():
 	return get_node("/root/Main/Player2")
 
