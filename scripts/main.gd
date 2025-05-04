@@ -42,7 +42,7 @@ func update_health_ui():
 			player_health_ui.append(texture_rect) 
 
 func set_player_height(player_height: float):
-	if player_height <= current_player_height - 10:
+	if player_height <= current_player_height - 5:
 		player_health -= 1
 
 	current_player_height = player_height
