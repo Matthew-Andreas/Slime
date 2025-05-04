@@ -8,13 +8,36 @@ var money_label
 
 #power ups
 #increase number to have player take damage after a bigger fall
-#1 = loosing a heart after 5 platform fall
+#1 = loosing a heart after 5 platform fall - Default
 #2 = loosing a heart after 10 platform fall
 #3 = loosing a heart after 15 platform fall
+#add at underground shop
 var lessFallDamage = 1
 #True - Double jump active
 #False - Double jump not active
+#add at ground shop
 var hasDoubleJump = false
+#increases jump height
+#1 - is normal jump
+#2 - makes you jump really high
+#3 - makes you super jump
+#I would advise adding this one in the clouds since it makes the game
+#signficantly easier but also kind of hard
+var slimeGoBoing = 1
+#increase speed of slime
+#1 - normal speed
+#1.5 - little faster
+#2 -almost too fast
+#This one could go in any shop 
+var slimeSpeed = 1
+#slow down fall speed(Also increases jump height)
+#1 - normal gravity
+#0.75 - slightly slower fall and increase jump
+#0.5 - slower fall and increase jump
+#I would say to have this one maybe go in the first shop so it's not to close
+#to the other jump upgrade
+#also for this one we could just have it go from 1 to .5 since .75 is not to different from 1
+var fallSpeed = .5
 
 @export var player_health: float = 3
 var prev_player_health: float

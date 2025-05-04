@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		isEmoting = true
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * GameManager.fallSpeed
 		somethingHappened = true
 		isEmoting = false
 	else:
@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		slime.animationType("Jump_Move")
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * GameManager.slimeGoBoing
 		jumping = true
 		somethingHappened = true
 		isEmoting = false
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not is_on_floor() and GameManager.hasDoubleJump and not doublejumping:
 		slime.stop_Ani()
 		slime.animationType("Jump_Move")
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * GameManager.slimeGoBoing
 		jumping = true
 		doublejumping = true
 		somethingHappened = true
@@ -107,8 +107,8 @@ func _physics_process(delta: float) -> void:
 		isEmoting = false
 		visuals.look_at(position + direction)
 		
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * GameManager.slimeSpeed
+		velocity.z = direction.z * SPEED * GameManager.slimeSpeed
 		if(!jumping):	
 			slime.animationType("Scoot_Move")
 		#if(!jumping and direction.z<0):
