@@ -37,7 +37,7 @@ var slimeSpeed = 1
 #I would say to have this one maybe go in the first shop so it's not to close
 #to the other jump upgrade
 #also for this one we could just have it go from 1 to .5 since .75 is not to different from 1
-var fallSpeed = .5
+var fallSpeed = 1
 
 @export var player_health: float = 3
 var prev_player_health: float
