@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=87 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://Skies/NormalSky.tres" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -39,11 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://0uqrq4hlnioq" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_metallic.jpg" id="36_chjal"]
 [ext_resource type="Texture2D" uid="uid://r005yikw3fyx" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_normal.jpg" id="37_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dnbpkbnembfhp" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_roughness.jpg" id="38_vchkt"]
-[ext_resource type="ArrayMesh" uid="uid://b5fk3uvf8fhjc" path="res://Flags/Flag_Large_Green.obj" id="40_cjqg0"]
-[ext_resource type="ArrayMesh" uid="uid://bxkqej1vt2kyk" path="res://Flags/Flag_Large_Red.obj" id="41_vchkt"]
-[ext_resource type="ArrayMesh" uid="uid://da7y4ywfa4d8m" path="res://Flags/Flag_Small_Blue.obj" id="42_txyw0"]
-[ext_resource type="ArrayMesh" uid="uid://dvg8oqs0sh4kq" path="res://Flags/Flag_Small_Green.obj" id="43_vc5cj"]
-[ext_resource type="ArrayMesh" uid="uid://c25nvksdi0wix" path="res://Flags/Flag_Small_Red.obj" id="44_nvyfr"]
+[ext_resource type="PackedScene" uid="uid://bjy2pgwqwcb6v" path="res://scenes/checkpoint.tscn" id="40_5he1u"]
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 2
@@ -744,22 +740,5 @@ transform = Transform3D(4.37114e-08, -1, -3.82137e-15, -1, -4.37114e-08, 8.74228
 mesh = SubResource("BoxMesh_j8jky")
 skeleton = NodePath("../..")
 
-[node name="FlagLargeGreen" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.24963, 200.539, -10.1737)
-mesh = ExtResource("40_cjqg0")
-
-[node name="FlagLargeRed" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1029, 198.06, 6.17)
-mesh = ExtResource("41_vchkt")
-
-[node name="FlagSmallBlue" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7948, 191.863, 2.77)
-mesh = ExtResource("42_txyw0")
-
-[node name="FlagSmallGreen" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3748, 191.836, 4.46999)
-mesh = ExtResource("43_vc5cj")
-
-[node name="FlagSmallRed" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4358, 192.434, 6.16999)
-mesh = ExtResource("44_nvyfr")
+[node name="Checkpoint" parent="." instance=ExtResource("40_5he1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01966, 200.505, -7.60363)
