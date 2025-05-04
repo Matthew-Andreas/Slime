@@ -6,6 +6,14 @@ const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 @export var player_money: float = 3
 var money_label
 
+#power ups
+#increase number to have player take damage after a bigger fall
+#1 = loosing a heart after 5 platform fall
+#2 = loosing a heart after 10 platform fall
+#3 = loosing a heart after 15 platform fall
+var lessFallDamage = 1
+#True - Double jump active
+#False - Double jump not active
 var hasDoubleJump = false
 
 @export var player_health: float = 3
@@ -42,7 +50,7 @@ func update_health_ui():
 			player_health_ui.append(texture_rect) 
 
 func set_player_height(player_height: float):
-	if player_height <= current_player_height - 5:
+	if player_height <= current_player_height - (5 * lessFallDamage):
 		player_health -= 1
 
 	current_player_height = player_height
