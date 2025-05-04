@@ -1,6 +1,6 @@
 extends Node3D
 
-var animationSlime
+var animationSlime: AnimationPlayer
 
 func _ready() -> void:
 	animationSlime = get_node("AnimationPlayer")
@@ -23,3 +23,9 @@ func animationType(move):
 			animationSlime.play(move)
 		"Emote_Sad":
 			animationSlime.play(move)
+
+func get_cur_ani():
+	return animationSlime.get_current_animation()
+	
+func stop_Ani():
+	animationSlime.stop()
