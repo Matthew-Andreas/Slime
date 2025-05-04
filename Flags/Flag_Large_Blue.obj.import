@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cosg62aomcrkh"
+path="res://.godot/imported/Flag_Large_Blue.obj-afa1f62a14b5ca7eb4d580d97007aefc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Flag_Large_Blue.obj-afa1f62a14b5ca7eb4d580d97007aefc.mesh"]
+
+source_file="res://Flags/Flag_Large_Blue.obj"
+dest_files=["res://.godot/imported/Flag_Large_Blue.obj-afa1f62a14b5ca7eb4d580d97007aefc.mesh", "res://.godot/imported/Flag_Large_Blue.obj-afa1f62a14b5ca7eb4d580d97007aefc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

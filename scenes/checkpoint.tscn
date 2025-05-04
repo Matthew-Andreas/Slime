@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjy2pgwqwcb6v"]
+
+[ext_resource type="Script" uid="uid://of7fnklex626" path="res://scenes/checkpoint.gd" id="1_yqsag"]
+[ext_resource type="ArrayMesh" uid="uid://bxkqej1vt2kyk" path="res://Flags/Flag_Large_Red.obj" id="2_c45tw"]
+[ext_resource type="ArrayMesh" uid="uid://b5fk3uvf8fhjc" path="res://Flags/Flag_Large_Green.obj" id="3_55jpe"]
+[ext_resource type="Material" uid="uid://dpctq551mf2do" path="res://Material/UncheckedCheckpoint.tres" id="4_vc08m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tl56q"]
+material = ExtResource("4_vc08m")
+top_radius = 1.5
+bottom_radius = 1.0
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok2sx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j0vas"]
+material = SubResource("StandardMaterial3D_ok2sx")
+top_radius = 1.35
+bottom_radius = 0.9
+height = 0.011
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fndcu"]
+radius = 1.5
+
+[node name="Checkpoint" type="Node3D"]
+script = ExtResource("1_yqsag")
+
+[node name="FlagLargeRed" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.04365, 0, -1.8095)
+mesh = ExtResource("2_c45tw")
+skeleton = NodePath("../Circle")
+
+[node name="FlagLargeGreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.03886, -2.38419e-07, -2.65965)
+visible = false
+mesh = ExtResource("3_55jpe")
+skeleton = NodePath("../Circle")
+
+[node name="Circle" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Circle"]
+mesh = SubResource("CylinderMesh_tl56q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Circle"]
+mesh = SubResource("CylinderMesh_j0vas")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fndcu")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

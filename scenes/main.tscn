@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=87 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://Skies/NormalSky.tres" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://0uqrq4hlnioq" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_metallic.jpg" id="36_chjal"]
 [ext_resource type="Texture2D" uid="uid://r005yikw3fyx" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_normal.jpg" id="37_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dnbpkbnembfhp" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_roughness.jpg" id="38_vchkt"]
+[ext_resource type="PackedScene" uid="uid://bjy2pgwqwcb6v" path="res://scenes/checkpoint.tscn" id="40_5he1u"]
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 2
@@ -738,3 +739,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(4.37114e-08, -1, -3.82137e-15, -1, -4.37114e-08, 8.74228e-08, -8.74228e-08, 0, -1, -1.99734, 0, 0)
 mesh = SubResource("BoxMesh_j8jky")
 skeleton = NodePath("../..")
+
+[node name="Checkpoint" parent="." instance=ExtResource("40_5he1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01966, 200.505, -7.60363)
