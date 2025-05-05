@@ -6,6 +6,9 @@ const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 @export var player_money: float = 3
 var money_label
 
+var time_elapsed := 0.0
+var countup_timer
+
 # power ups
 # increase number to have player take damage after a bigger fall
 # 1 = loosing a heart after 5 platform fall - Default
@@ -34,13 +37,18 @@ var slimeSpeed = 1
 # 1 - normal gravity
 # 0.90 - slightly slower fall and increase jump
 # 0.80 - slower fall and increase jump
-var fallSpeed = 0.90
+var fallSpeed = 1
 
 @export var player_health: float = 3
 var prev_player_health: float
 var player_health_ui: Array
 
 var current_player_height: float
+
+func calcScore():
+	var score = (player_health * player_money) / time_elapsed
+	print(score)
+	return score
 
 func update_money_ui():
 	money_label.set_text(" x " + str(player_money))
@@ -170,7 +178,22 @@ func spawnItem(
 			
 			print("Item position: " + str(next_item_position))
 	
+func format_seconds(time : float, use_milliseconds : bool) -> String:
+	var minutes := time / 60
+	var seconds := fmod(time, 60)
+
+	if not use_milliseconds:
+		return "%02d:%02d" % [minutes, seconds]
+
+	var milliseconds := fmod(time, 1) * 100
+
+	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+	
 func _ready():
+	countup_timer = Label.new()
+	countup_timer.position.y += 100
+	add_child(countup_timer)
+	
 	prev_player_health = player_health
 	
 	for i in range(prev_player_health):
@@ -235,7 +258,11 @@ func _ready():
 	# Gem_1s
 	spawnItem(preload("res://scenes/gem_1.tscn"), 0.15, "gem_1", platform_positions, 50)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	time_elapsed += delta
+	
+	countup_timer.text = format_seconds(time_elapsed, false)
+	
 	update_health_ui()
 	prev_player_health = player_health
 	
