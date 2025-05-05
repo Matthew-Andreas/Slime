@@ -776,6 +776,9 @@ shape = SubResource("SphereShape3D_txyw0")
 [node name="CloudShopkeeper" parent="." instance=ExtResource("8_0ld40")]
 transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, -5.84, 150.298, -5.904)
 
+[node name="EndPlayer" parent="." instance=ExtResource("23_c6pm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 200.129, 0)
+
 [node name="SpaceStationFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 200, 0)
 mesh = SubResource("BoxMesh_kmb1v")
@@ -784,8 +787,6 @@ mesh = SubResource("BoxMesh_kmb1v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpaceStationFloor/StaticBody3D"]
 shape = SubResource("BoxShape3D_fuf3a")
-
-[node name="EndPlayer" parent="SpaceStationFloor" instance=ExtResource("23_c6pm6")]
 
 [node name="SpaceStationFloor2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 200, 0)

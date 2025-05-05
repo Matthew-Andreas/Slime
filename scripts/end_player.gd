@@ -23,6 +23,7 @@ func _process(_delta) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body.name == "Player"):
 		player_in_range = true
+		GameManager.gameOver = true
 
 	#pass # Replace with function body.
 

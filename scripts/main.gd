@@ -5,6 +5,7 @@ const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 
 @export var player_money: float = 3
 var money_label
+var gameOver = false
 
 
 var time_elapsed := 0.0
@@ -294,3 +295,8 @@ func upgradePlayer(newUpgrade):
 	if(newUpgrade == 59 and player_money >= 8):
 		fallSpeed -= .1 
 		player_money -= 8
+	if(newUpgrade == 9 and gameOver):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene_to_file("res://scenes/ending_scene.tscn")
+		
+	print(newUpgrade)
