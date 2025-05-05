@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=94 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://Skies/NormalSky.tres" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -39,7 +39,10 @@
 [ext_resource type="Texture2D" uid="uid://0uqrq4hlnioq" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_metallic.jpg" id="36_chjal"]
 [ext_resource type="Texture2D" uid="uid://r005yikw3fyx" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_normal.jpg" id="37_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dnbpkbnembfhp" path="res://4k JPEG/Scifi_Panels_02/Scifi_Panels_02_roughness.jpg" id="38_vchkt"]
-[ext_resource type="PackedScene" uid="uid://bjy2pgwqwcb6v" path="res://scenes/checkpoint.tscn" id="40_5he1u"]
+[ext_resource type="Script" uid="uid://of7fnklex626" path="res://scenes/checkpoint.gd" id="40_chjal"]
+[ext_resource type="ArrayMesh" uid="uid://b5fk3uvf8fhjc" path="res://Flags/Flag_Large_Green.obj" id="40_cjqg0"]
+[ext_resource type="ArrayMesh" uid="uid://bxkqej1vt2kyk" path="res://Flags/Flag_Large_Red.obj" id="41_vchkt"]
+[ext_resource type="Material" uid="uid://dpctq551mf2do" path="res://Material/UncheckedCheckpoint.tres" id="43_cjqg0"]
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 background_mode = 2
@@ -287,6 +290,23 @@ size = Vector3(20, 1, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pm6"]
 size = Vector3(22, 1, 22)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tl56q"]
+material = ExtResource("43_cjqg0")
+top_radius = 1.5
+bottom_radius = 1.0
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok2sx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j0vas"]
+material = SubResource("StandardMaterial3D_ok2sx")
+top_radius = 1.35
+bottom_radius = 0.9
+height = 0.011
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fndcu"]
+radius = 1.5
 
 [node name="Main" type="Node3D"]
 
@@ -740,5 +760,131 @@ transform = Transform3D(4.37114e-08, -1, -3.82137e-15, -1, -4.37114e-08, 8.74228
 mesh = SubResource("BoxMesh_j8jky")
 skeleton = NodePath("../..")
 
-[node name="Checkpoint" parent="." instance=ExtResource("40_5he1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01966, 200.505, -7.60363)
+[node name="Checkpoint1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 50, 3.25)
+script = ExtResource("40_chjal")
+checkpointName = "CP1"
+
+[node name="FlagLargeRed" type="MeshInstance3D" parent="Checkpoint1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.04365, 0, -1.8095)
+mesh = ExtResource("41_vchkt")
+skeleton = NodePath("../Circle")
+
+[node name="FlagLargeGreen" type="MeshInstance3D" parent="Checkpoint1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.03886, -2.38419e-07, -2.65965)
+visible = false
+mesh = ExtResource("40_cjqg0")
+skeleton = NodePath("../Circle")
+
+[node name="Circle" type="Node3D" parent="Checkpoint1"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoint1/Circle"]
+mesh = SubResource("CylinderMesh_tl56q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Checkpoint1/Circle"]
+mesh = SubResource("CylinderMesh_j0vas")
+
+[node name="Area3D" type="Area3D" parent="Checkpoint1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fndcu")
+
+[node name="Checkpoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 100.51, 5)
+script = ExtResource("40_chjal")
+checkpointName = "CP2"
+
+[node name="FlagLargeRed" type="MeshInstance3D" parent="Checkpoint2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.04365, 0, -1.8095)
+mesh = ExtResource("41_vchkt")
+skeleton = NodePath("../Circle")
+
+[node name="FlagLargeGreen" type="MeshInstance3D" parent="Checkpoint2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.03886, -2.38419e-07, -2.65965)
+visible = false
+mesh = ExtResource("40_cjqg0")
+skeleton = NodePath("../Circle")
+
+[node name="Circle" type="Node3D" parent="Checkpoint2"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoint2/Circle"]
+mesh = SubResource("CylinderMesh_tl56q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Checkpoint2/Circle"]
+mesh = SubResource("CylinderMesh_j0vas")
+
+[node name="Area3D" type="Area3D" parent="Checkpoint2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fndcu")
+
+[node name="Checkpoint3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 150.51, 5.25)
+script = ExtResource("40_chjal")
+checkpointName = "CP3"
+
+[node name="FlagLargeRed" type="MeshInstance3D" parent="Checkpoint3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.04365, 0, -1.8095)
+mesh = ExtResource("41_vchkt")
+skeleton = NodePath("../Circle")
+
+[node name="FlagLargeGreen" type="MeshInstance3D" parent="Checkpoint3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.03886, -2.38419e-07, -2.65965)
+visible = false
+mesh = ExtResource("40_cjqg0")
+skeleton = NodePath("../Circle")
+
+[node name="Circle" type="Node3D" parent="Checkpoint3"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoint3/Circle"]
+mesh = SubResource("CylinderMesh_tl56q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Checkpoint3/Circle"]
+mesh = SubResource("CylinderMesh_j0vas")
+
+[node name="Area3D" type="Area3D" parent="Checkpoint3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fndcu")
+
+[node name="Checkpoint4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 200.505, 7.5)
+script = ExtResource("40_chjal")
+checkpointName = "CP4"
+
+[node name="FlagLargeRed" type="MeshInstance3D" parent="Checkpoint4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.04365, 0, -1.8095)
+mesh = ExtResource("41_vchkt")
+skeleton = NodePath("../Circle")
+
+[node name="FlagLargeGreen" type="MeshInstance3D" parent="Checkpoint4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.03886, -2.38419e-07, -2.65965)
+visible = false
+mesh = ExtResource("40_cjqg0")
+skeleton = NodePath("../Circle")
+
+[node name="Circle" type="Node3D" parent="Checkpoint4"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoint4/Circle"]
+mesh = SubResource("CylinderMesh_tl56q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Checkpoint4/Circle"]
+mesh = SubResource("CylinderMesh_j0vas")
+
+[node name="Area3D" type="Area3D" parent="Checkpoint4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fndcu")
+
+[connection signal="newCheckpoint" from="Checkpoint1" to="Player" method="_on_checkpoint_1_new_checkpoint"]
+[connection signal="body_entered" from="Checkpoint1/Area3D" to="Checkpoint1" method="_on_area_3d_body_entered"]
+[connection signal="newCheckpoint" from="Checkpoint2" to="Player" method="_on_checkpoint_2_new_checkpoint"]
+[connection signal="body_entered" from="Checkpoint2/Area3D" to="Checkpoint2" method="_on_area_3d_body_entered"]
+[connection signal="newCheckpoint" from="Checkpoint3" to="Player" method="_on_checkpoint_3_new_checkpoint"]
+[connection signal="body_entered" from="Checkpoint3/Area3D" to="Checkpoint3" method="_on_area_3d_body_entered"]
+[connection signal="newCheckpoint" from="Checkpoint4" to="Player" method="_on_checkpoint_4_new_checkpoint"]
+[connection signal="body_entered" from="Checkpoint4/Area3D" to="Checkpoint4" method="_on_area_3d_body_entered"]
