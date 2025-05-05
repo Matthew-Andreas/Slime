@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw472m5qb7m21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5w7kb"]
+albedo_color = Color(0.441714, 0.244155, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pa17o"]
+material = SubResource("StandardMaterial3D_5w7kb")
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1444"]
+albedo_color = Color(1, 0.796078, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.635294, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w3qnr"]
+material = SubResource("StandardMaterial3D_s1444")
+size = Vector3(0.11, 0.1, 0.11)
+
+[node name="Torch" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pa17o")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.538296, 0)
+mesh = SubResource("BoxMesh_w3qnr")

@@ -4,10 +4,10 @@ extends CharacterBody3D
 @onready var slime: Node3D = $Visuals/Slime_glb
 @onready var visuals: Node3D = $Visuals
 @onready var camera: Camera3D = $SpringArm3D/Camera3D
-@onready var checkpoint_1: Node3D = $"../Checkpoint1"
-@onready var checkpoint_4: Node3D = $"../Checkpoint4"
-@onready var checkpoint_3: Node3D = $"../Checkpoint3"
-@onready var checkpoint_2: Node3D = $"../Checkpoint2"
+@onready var checkpoint_1: Node3D = %Checkpoint1
+@onready var checkpoint_4: Node3D = %Checkpoint4
+@onready var checkpoint_3: Node3D = %Checkpoint3
+@onready var checkpoint_2: Node3D = %Checkpoint2
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 6
