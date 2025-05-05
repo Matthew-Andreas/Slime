@@ -9,6 +9,8 @@ var money_label
 var time_elapsed := 0.0
 var countup_timer
 
+var upgrade = 0
+
 # power ups
 # increase number to have player take damage after a bigger fall
 # 1 = loosing a heart after 5 platform fall - Default
@@ -267,3 +269,24 @@ func _process(delta: float) -> void:
 	prev_player_health = player_health
 	
 	update_money_ui()
+	
+	if(not upgrade == 0):
+		upgradePlayer(upgrade)
+		upgrade = 0
+		
+func upgradePlayer(newUpgrade):
+	if(newUpgrade == 41 and player_money >= 5):
+		slimeSpeed += .5 
+		player_money -= 5
+	if(newUpgrade == 45 and player_money >= 10 and not hasDoubleJump):
+		hasDoubleJump = true
+		player_money -= 10
+	if(newUpgrade == 49 and player_money >= 10):
+		slimeGoBoing += .05 
+		player_money -= 10
+	if(newUpgrade == 54 and player_money >= 7):
+		lessFallDamage += 1 
+		player_money -= 7
+	if(newUpgrade == 59 and player_money >= 8):
+		fallSpeed -= .1 
+		player_money -= 8

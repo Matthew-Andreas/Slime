@@ -37,11 +37,11 @@ Shopkeeper: Now, what would you like to purchase today?
 	=> END
 
 ~ shop_options
-- Speed Boost (5 Gems)
+- Speed Boost 5 Gems
 	Slime: I'll take the speed boost!
 	Shopkeeper: Here you go! 
 	=> END
-- Double Jump (10 Gems)
+- Double Jump 10 Gems
 	Slime: I'll try the double jump
 	Shopkeeper: Have fun!
 	=> END
