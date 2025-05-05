@@ -14,9 +14,11 @@ func _ready():
 # Function to be called when the level is completed
 func show_ending_screen(score, time, collectibles, accuracy):
 	# Updates the stats with the actual player data
+	var score2 = "%02f" % score
+	
 	$StatsPanel/TimeValue.text = str(time)
 	$StatsPanel/CollectiblesValue.text = str(collectibles)
-	$StatsPanel/ScoreValue.text = str(score)
+	$StatsPanel/ScoreValue.text = str(score2)
 	
 	# Calculates rating based on score
 	var rating = "C"
