@@ -15,11 +15,11 @@ var countup_timer
 # 2 = loosing a heart after 10 platform fall
 # 3 = loosing a heart after 15 platform fall
 # add at underground shop
-var lessFallDamage = 10
+var lessFallDamage = 1
 # True - Double jump active
 # False - Double jump not active
 # add at ground shop
-var hasDoubleJump = true
+var hasDoubleJump = false
 #increases jump height
 # 1 - is normal jump
 # 1.05 - lets player skip 1 platform
