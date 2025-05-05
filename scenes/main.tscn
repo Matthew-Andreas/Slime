@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://dovymemhyh1ci"]
+[gd_scene load_steps=105 format=3 uid="uid://dovymemhyh1ci"]
 
 [ext_resource type="Sky" uid="uid://c6ncfd70jvevh" path="res://Skies/NormalSky.tres" id="1_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dghxcd184a6gu" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -22,9 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://cx0cq234xmy5o" path="res://Material-LIB/Nature/SurfaceSoil/SurfaceSoil-N.png" id="17_0ld40"]
 [ext_resource type="Texture2D" uid="uid://binoo7kxr67to" path="res://Material-LIB/Nature/SurfaceSoil/SurfaceSoil-R.png" id="18_gqmmt"]
 [ext_resource type="Material" uid="uid://dojpqd0m67cb" path="res://Material/SpaceStationFloor.tres" id="22_pm3ni"]
+[ext_resource type="Resource" uid="uid://dta68a2bv7pbs" path="res://dialogue/SKUG.dialogue" id="22_vc5cj"]
 [ext_resource type="PackedScene" uid="uid://sqvmw1jncr26" path="res://scenes/end_player.tscn" id="23_c6pm6"]
+[ext_resource type="Resource" uid="uid://02sjvgqp2r" path="res://dialogue/SKG.dialogue" id="23_nvyfr"]
 [ext_resource type="Material" uid="uid://crsyk77853ujh" path="res://Material/SpaceStationFloorSmall.tres" id="23_y6deb"]
 [ext_resource type="Texture2D" uid="uid://wl0kj1x702qb" path="res://4k JPEG/Scifi_Panels_04/Scifi_Panels_04_basecolor.jpg" id="24_fv21b"]
+[ext_resource type="Resource" uid="uid://ne81o7yhko0f" path="res://dialogue/SKC.dialogue" id="24_ty1g6"]
 [ext_resource type="Texture2D" uid="uid://13aeymd1l2q" path="res://4k JPEG/Scifi_Panels_04/Scifi_Panels_04_ambientocclusion.jpg" id="24_vxglm"]
 [ext_resource type="Texture2D" uid="uid://g4dyi5yn4ovq" path="res://4k JPEG/Scifi_Panels_04/Scifi_Panels_04_glossiness.jpg" id="25_2f3dj"]
 [ext_resource type="Texture2D" uid="uid://dtsbbnb1erura" path="res://4k JPEG/Scifi_Panels_04/Scifi_Panels_04_height.jpg" id="26_yq6so"]
@@ -345,7 +348,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.179645, 1.33731)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.574176, 52.5274, 3.06109)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_tbgi4")]
 
@@ -570,6 +573,7 @@ shape = SubResource("BoxShape3D_dp3eg")
 
 [node name="Shopkeeper" parent="2nd-floor-objects" instance=ExtResource("8_0ld40")]
 transform = Transform3D(0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, 0.141421, -4, 49.8, -4)
+dialogue_resource = ExtResource("22_vc5cj")
 
 [node name="GroundFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 100.01, 0)
@@ -610,6 +614,7 @@ shape = SubResource("BoxShape3D_gqmmt")
 
 [node name="GroundShopkeeper" parent="." instance=ExtResource("8_0ld40")]
 transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, -5.84, 100.298, -5.904)
+dialogue_resource = ExtResource("23_nvyfr")
 
 [node name="Cloud" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 150, 0)
@@ -775,6 +780,7 @@ shape = SubResource("SphereShape3D_txyw0")
 
 [node name="CloudShopkeeper" parent="." instance=ExtResource("8_0ld40")]
 transform = Transform3D(0.176777, 0, 0.176777, 0, 0.25, 0, -0.176777, 0, 0.176777, -5.84, 150.298, -5.904)
+dialogue_resource = ExtResource("24_ty1g6")
 
 [node name="EndPlayer" parent="." instance=ExtResource("23_c6pm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 200.129, 0)

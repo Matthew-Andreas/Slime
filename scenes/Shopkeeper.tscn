@@ -1,10 +1,554 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwo7du3w0fap"]
+[gd_scene load_steps=12 format=3 uid="uid://bwo7du3w0fap"]
 
 [ext_resource type="Script" uid="uid://bq0d2eeep6nup" path="res://scripts/shopkeeper.gd" id="1_dvnb0"]
-[ext_resource type="Resource" uid="uid://cyh01xsfcxhef" path="res://dialogue/shopkeeper.dialogue" id="2_grjja"]
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="2_dvnb0"]
 [ext_resource type="PackedScene" uid="uid://qg7p2he7om1e" path="res://Mushroom Buddies/Mushroom Buddies/FBX + Textures/Mushroom_red_cartoon.fbx" id="3_rwo8t"]
 [ext_resource type="Script" uid="uid://blgy0aqemsya5" path="res://scripts/shop_interaction_area.gd" id="4_c5swx"]
 [ext_resource type="FontFile" uid="uid://b0cb4d7stx162" path="res://addons/Fonts/MightySouly-lxggD.ttf" id="5_shle0"]
+
+[sub_resource type="Resource" id="Resource_grjja"]
+script = ExtResource("2_dvnb0")
+using_states = PackedStringArray()
+titles = {
+"apply_double_jump": "71",
+"apply_fall_resist": "81",
+"apply_float": "84",
+"apply_jump": "77",
+"shop_options": "39",
+"start": "1"
+}
+character_names = PackedStringArray("Shopkeeper", "Slime")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "Shopkeeper",
+&"id": "1",
+&"next_id": "2",
+&"text": "Hello there, little slime! Looking for some special powerups?",
+&"type": "dialogue"
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"type": ""
+},
+"19": {
+&"id": "19",
+&"next_id": "20",
+&"text": "Why are you selling powerups in this strange place?",
+&"type": "response"
+},
+"2": {
+&"character": "Shopkeeper",
+&"id": "2",
+&"next_id": "3",
+&"text": "I've got just what you need to help you on your adventure!",
+&"type": "dialogue"
+},
+"20": {
+&"character": "Shopkeeper",
+&"id": "20",
+&"next_id": "21",
+&"text": "Oh, you know, a merchant goes where the customers are!",
+&"type": "dialogue"
+},
+"21": {
+&"character": "Shopkeeper",
+&"id": "21",
+&"next_id": "22",
+&"text": "And with all the dangers in this world, adventurers like you always need an edge.",
+&"type": "dialogue"
+},
+"22": {
+&"character": "Shopkeeper",
+&"id": "22",
+&"next_id": "23",
+&"text": "Plus, I like the scenery here. Very... fun!",
+&"type": "dialogue"
+},
+"23": {
+&"id": "23",
+&"next_id": "24",
+&"responses": PackedStringArray("23", "28"),
+&"text": "What are you selling",
+&"type": "response"
+},
+"24": {
+&"id": "24",
+&"is_snippet": false,
+&"next_id": "39",
+&"next_id_after": "",
+&"type": "goto"
+},
+"25": {
+&"id": "25",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"27": {
+&"id": "27",
+&"next_id": "28",
+&"type": ""
+},
+"28": {
+&"id": "28",
+&"next_id": "29",
+&"text": "How do I use these powerups?",
+&"type": "response"
+},
+"29": {
+&"character": "Shopkeeper",
+&"id": "29",
+&"next_id": "30",
+&"text": "It's simple! Once you buy one, I'll infuse you with its magic.",
+&"type": "dialogue"
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"responses": PackedStringArray("3"),
+&"text": "Tell me what you have for sale.",
+&"type": "response"
+},
+"30": {
+&"character": "Shopkeeper",
+&"id": "30",
+&"next_id": "31",
+&"text": "The Double Jump lets you jump again while in the air - just press the jump button twice!",
+&"type": "dialogue"
+},
+"31": {
+&"character": "Shopkeeper",
+&"id": "31",
+&"next_id": "32",
+&"text": "The Speed Boost makes you zip around much faster for a short time.",
+&"type": "dialogue"
+},
+"32": {
+&"character": "Shopkeeper",
+&"id": "32",
+&"next_id": "33",
+&"text": "Now, what would you like to purchase today?",
+&"type": "dialogue"
+},
+"33": {
+&"id": "33",
+&"next_id": "34",
+&"responses": PackedStringArray("33"),
+&"text": "What are you selling",
+&"type": "response"
+},
+"34": {
+&"character": "Shopkeeper",
+&"id": "34",
+&"next_id": "35",
+&"text": "Here are the options!",
+&"type": "dialogue"
+},
+"35": {
+&"id": "35",
+&"is_snippet": false,
+&"next_id": "39",
+&"next_id_after": "",
+&"type": "goto"
+},
+"36": {
+&"id": "36",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"37": {
+&"id": "37",
+&"next_id": "38",
+&"type": ""
+},
+"38": {
+&"id": "38",
+&"next_id": "39",
+&"type": "title"
+},
+"39": {
+&"id": "39",
+&"next_id": "40",
+&"responses": PackedStringArray("39", "43", "47", "52", "57", "62"),
+&"text": "Speed Boost (5 Gems)",
+&"type": "response"
+},
+"4": {
+&"character": "Shopkeeper",
+&"id": "4",
+&"next_id": "5",
+&"text": "I have several magical powerups that could help a slime like you.",
+&"type": "dialogue"
+},
+"40": {
+&"character": "Slime",
+&"id": "40",
+&"next_id": "41",
+&"text": "I'll take the speed boost!",
+&"type": "dialogue"
+},
+"41": {
+&"character": "Shopkeeper",
+&"id": "41",
+&"next_id": "42",
+&"text": "Here you go!",
+&"type": "dialogue"
+},
+"42": {
+&"id": "42",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"43": {
+&"id": "43",
+&"next_id": "44",
+&"text": "Double Jump (10 Gems)",
+&"type": "response"
+},
+"44": {
+&"character": "Slime",
+&"id": "44",
+&"next_id": "45",
+&"text": "I'll try the double jump",
+&"type": "dialogue"
+},
+"45": {
+&"character": "Shopkeeper",
+&"id": "45",
+&"next_id": "46",
+&"text": "Have fun!",
+&"type": "dialogue"
+},
+"46": {
+&"id": "46",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"47": {
+&"id": "47",
+&"next_id": "48",
+&"text": "Jump Boost (10 Gems)",
+&"type": "response"
+},
+"48": {
+&"character": "Slime",
+&"id": "48",
+&"next_id": "49",
+&"text": "Make me jump higher!",
+&"type": "dialogue"
+},
+"49": {
+&"character": "Shopkeeper",
+&"id": "49",
+&"next_id": "51",
+&"text": "Boing boing!",
+&"type": "dialogue"
+},
+"5": {
+&"character": "Shopkeeper",
+&"id": "5",
+&"next_id": "6",
+&"text": "Just check out my selection below and see if anything catches your eye!",
+&"type": "dialogue"
+},
+"50": {
+&"id": "50",
+&"next_id": "51",
+&"type": ""
+},
+"51": {
+&"id": "51",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"52": {
+&"id": "52",
+&"next_id": "53",
+&"text": "Fall Damage Resistance (7 Gems)",
+&"type": "response"
+},
+"53": {
+&"character": "Slime",
+&"id": "53",
+&"next_id": "54",
+&"text": "I want to fall further without getting hurt.",
+&"type": "dialogue"
+},
+"54": {
+&"character": "Shopkeeper",
+&"id": "54",
+&"next_id": "56",
+&"text": "That’s smart. Take this.",
+&"type": "dialogue"
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"type": ""
+},
+"56": {
+&"id": "56",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"57": {
+&"id": "57",
+&"next_id": "58",
+&"text": "Floaty Fall (8 Gems)",
+&"type": "response"
+},
+"58": {
+&"character": "Slime",
+&"id": "58",
+&"next_id": "59",
+&"text": "Make me fall slower!",
+&"type": "dialogue"
+},
+"59": {
+&"character": "Shopkeeper",
+&"id": "59",
+&"next_id": "61",
+&"text": "Graceful as a feather.",
+&"type": "dialogue"
+},
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"responses": PackedStringArray("6", "19"),
+&"text": "What are you selling",
+&"type": "response"
+},
+"60": {
+&"id": "60",
+&"next_id": "61",
+&"type": ""
+},
+"61": {
+&"id": "61",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"62": {
+&"id": "62",
+&"next_id": "63",
+&"text": "Nothing, thank you",
+&"type": "response"
+},
+"63": {
+&"character": "Slime",
+&"id": "63",
+&"next_id": "64",
+&"text": "I think I'm good.",
+&"type": "dialogue"
+},
+"64": {
+&"character": "Shopkeeper",
+&"id": "64",
+&"next_id": "65",
+&"text": "Sounds good, see you soon!",
+&"type": "dialogue"
+},
+"65": {
+&"id": "65",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"69": {
+&"id": "69",
+&"next_id": "70",
+&"type": ""
+},
+"7": {
+&"id": "7",
+&"is_snippet": false,
+&"next_id": "39",
+&"next_id_after": "",
+&"type": "goto"
+},
+"70": {
+&"id": "70",
+&"next_id": "71",
+&"type": "title"
+},
+"71": {
+&"character": "Shopkeeper",
+&"id": "71",
+&"next_id": "73",
+&"text": "Bounce away, my friend!",
+&"type": "dialogue"
+},
+"72": {
+&"id": "72",
+&"next_id": "73",
+&"type": ""
+},
+"73": {
+&"id": "73",
+&"next_id": "77",
+&"type": "title"
+},
+"76": {
+&"id": "76",
+&"next_id": "77",
+&"type": ""
+},
+"77": {
+&"id": "77",
+&"next_id": "81",
+&"type": "title"
+},
+"8": {
+&"id": "8",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"80": {
+&"id": "80",
+&"next_id": "81",
+&"type": ""
+},
+"81": {
+&"id": "81",
+&"next_id": "84",
+&"type": "title"
+},
+"83": {
+&"id": "83",
+&"next_id": "84",
+&"type": ""
+},
+"84": {
+&"id": "84",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"86": {
+&"id": "86",
+&"next_id": "87",
+&"type": ""
+},
+"87": {
+&"id": "87",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "~ start
+Shopkeeper: Hello there, little slime! Looking for some special powerups?
+Shopkeeper: I've got just what you need to help you on your adventure!
+- Tell me what you have for sale.
+  Shopkeeper: I have several magical powerups that could help a slime like you.
+  Shopkeeper: Just check out my selection below and see if anything catches your eye!
+- What are you selling
+	=> shop_options
+	=> END
+#- Speed Boost 5 Gems
+	#Shopkeeper: Here you go!
+	#=> END
+#- Dobule Jump 10 Gems
+	#Shopkeeper: Have fun!
+	#=> END
+#- Nothing, thank you
+	#Shopkeeper: Sounds good, see you soon!
+	#=> END
+
+- Why are you selling powerups in this strange place?
+  Shopkeeper: Oh, you know, a merchant goes where the customers are!
+  Shopkeeper: And with all the dangers in this world, adventurers like you always need an edge.
+  Shopkeeper: Plus, I like the scenery here. Very... fun!
+- What are you selling
+	=> shop_options
+	=> END
+
+
+- How do I use these powerups?
+Shopkeeper: It's simple! Once you buy one, I'll infuse you with its magic.
+Shopkeeper: The Double Jump lets you jump again while in the air - just press the jump button twice!
+Shopkeeper: The Speed Boost makes you zip around much faster for a short time.
+Shopkeeper: Now, what would you like to purchase today?
+- What are you selling
+	Shopkeeper: Here are the options!
+	=> shop_options
+	=> END
+
+~ shop_options
+- Speed Boost (5 Gems)
+	Slime: I'll take the speed boost!
+	Shopkeeper: Here you go! 
+	=> END
+- Double Jump (10 Gems)
+	Slime: I'll try the double jump
+	Shopkeeper: Have fun!
+	=> END
+- Jump Boost (10 Gems)
+	Slime: Make me jump higher!
+	Shopkeeper: Boing boing!
+	#=> apply_jump
+	=> END
+- Fall Damage Resistance (7 Gems)
+	Slime: I want to fall further without getting hurt.
+	Shopkeeper: That’s smart. Take this.
+	#=> apply_fall_resist
+	=> END
+- Floaty Fall (8 Gems)
+	Slime: Make me fall slower!
+	Shopkeeper: Graceful as a feather.
+	#=> apply_float
+	=> END
+- Nothing, thank you
+	Slime: I think I'm good.
+	Shopkeeper: Sounds good, see you soon!
+	=> END
+
+#~ apply_speed
+#Shopkeeper: You're gonna be zooming now!
+
+~ apply_double_jump
+Shopkeeper: Bounce away, my friend!
+
+~ apply_jump
+	Shopkeeper: Enjoy the extra hangtime!
+
+
+~ apply_fall_resist
+	Shopkeeper: No more squishy landings.
+
+
+~ apply_float
+	Shopkeeper: Falling like a feather!
+
+=> END
+
+#apply_double_jump,apply_fall_resist,apply_float,apply_jump,apply_speed,shop_options,start"
+metadata/dialogue_manager_version = "3.6.0"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vq5ul"]
 
@@ -48,7 +592,7 @@ _data = {
 
 [node name="Shopkeeper" type="Node3D"]
 script = ExtResource("1_dvnb0")
-dialogue_resource = ExtResource("2_grjja")
+dialogue_resource = SubResource("Resource_grjja")
 
 [node name="Mushroom_red_cartoon" parent="." instance=ExtResource("3_rwo8t")]
 

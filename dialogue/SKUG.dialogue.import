@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dta68a2bv7pbs"
+path="res://.godot/imported/SKUG.dialogue-4b67e60ae4cb4800d672fc35f602fcb4.tres"
+
+[deps]
+
+source_file="res://dialogue/SKUG.dialogue"
+dest_files=["res://.godot/imported/SKUG.dialogue-4b67e60ae4cb4800d672fc35f602fcb4.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://02sjvgqp2r"
+path="res://.godot/imported/SKG.dialogue-9a914744189bfc972f889abca129ee81.tres"
+
+[deps]
+
+source_file="res://dialogue/SKG.dialogue"
+dest_files=["res://.godot/imported/SKG.dialogue-9a914744189bfc972f889abca129ee81.tres"]
+
+[params]
+
+defaults=true

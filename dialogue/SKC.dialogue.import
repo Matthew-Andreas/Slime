@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ne81o7yhko0f"
+path="res://.godot/imported/SKC.dialogue-efa25ff7e14478a600524ae8fc7d8319.tres"
+
+[deps]
+
+source_file="res://dialogue/SKC.dialogue"
+dest_files=["res://.godot/imported/SKC.dialogue-efa25ff7e14478a600524ae8fc7d8319.tres"]
+
+[params]
+
+defaults=true
