@@ -7,6 +7,9 @@ func _ready():
 	await get_tree().create_timer(0.5).timeout
 	$AnimationPlayer.play("fade_in")
 	show_ending_screen(GameManager.calcScore(),GameManager.format_seconds(GameManager.time_elapsed, false),GameManager.player_health,"99")
+	
+	$Restart.pressed.connect(_on_restart_pressed)
+	$MainMenuButton.pressed.connect(_on_main_menu_pressed)
 
 # Function to be called when the level is completed
 func show_ending_screen(score, time, collectibles, accuracy):
@@ -27,3 +30,9 @@ func show_ending_screen(score, time, collectibles, accuracy):
 		rating = "B"
 	
 	$RatingDisplay.text = rating
+
+func _on_restart_pressed():
+	get_tree().change_scene_to_file("res://scenes/main.tscn")  
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")  
