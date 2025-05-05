@@ -1614,36 +1614,36 @@ Shopkeeper: Now, what would you like to purchase today?
 	=> END
 
 ~ shop_options
-- Speed Boost 5 Gems
+- Speed Boost (5 Gems)
 	Slime: I'll take the speed boost!
 	Shopkeeper: Here you go! 
 	=> END
-- Dobule Jump 10 Gems
+- Double Jump (10 Gems)
 	Slime: I'll try the double jump
 	Shopkeeper: Have fun!
 	=> END
 - Jump Boost (10 Gems)
 	Slime: Make me jump higher!
 	Shopkeeper: Boing boing!
-	=> apply_jump
+	#=> apply_jump
 	=> END
 - Fall Damage Resistance (7 Gems)
 	Slime: I want to fall further without getting hurt.
 	Shopkeeper: That’s smart. Take this.
-	=> apply_fall_resist
+	#=> apply_fall_resist
 	=> END
 - Floaty Fall (8 Gems)
 	Slime: Make me fall slower!
 	Shopkeeper: Graceful as a feather.
-	=> apply_float
+	#=> apply_float
 	=> END
 - Nothing, thank you
 	Slime: I think I'm good.
 	Shopkeeper: Sounds good, see you soon!
 	=> END
 
-~ apply_speed
-Shopkeeper: You're gonna be zooming now!
+#~ apply_speed
+#Shopkeeper: You're gonna be zooming now!
 
 ~ apply_double_jump
 Shopkeeper: Bounce away, my friend!
@@ -1659,7 +1659,9 @@ Shopkeeper: Bounce away, my friend!
 ~ apply_float
 	Shopkeeper: Falling like a feather!
 
-=> END"
+=> END
+
+#apply_double_jump,apply_fall_resist,apply_float,apply_jump,apply_speed,shop_options,start"
 scroll_smooth = true
 scroll_vertical = 52.0
 syntax_highlighter = SubResource("SyntaxHighlighter_crdrt")

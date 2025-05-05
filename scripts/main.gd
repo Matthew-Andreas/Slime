@@ -278,9 +278,12 @@ func upgradePlayer(newUpgrade):
 	if(newUpgrade == 41 and player_money >= 5):
 		slimeSpeed += .5 
 		player_money -= 5
+		await get_tree().create_timer(30).timeout
 	if(newUpgrade == 45 and player_money >= 10 and not hasDoubleJump):
 		hasDoubleJump = true
 		player_money -= 10
+		await get_tree().create_timer(30).timeout
+		hasDoubleJump = false
 	if(newUpgrade == 49 and player_money >= 10):
 		slimeGoBoing += .05 
 		player_money -= 10
