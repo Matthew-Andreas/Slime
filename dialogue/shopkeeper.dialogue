@@ -45,9 +45,41 @@ Shopkeeper: Now, what would you like to purchase today?
 	Slime: I'll try the double jump
 	Shopkeeper: Have fun!
 	=> END
+- Jump Boost (10 Gems)
+	Slime: Make me jump higher!
+	Shopkeeper: Boing boing!
+	=> apply_jump
+	=> END
+- Fall Damage Resistance (7 Gems)
+	Slime: I want to fall further without getting hurt.
+	Shopkeeper: That’s smart. Take this.
+	=> apply_fall_resist
+	=> END
+- Floaty Fall (8 Gems)
+	Slime: Make me fall slower!
+	Shopkeeper: Graceful as a feather.
+	=> apply_float
+	=> END
 - Nothing, thank you
 	Slime: I think I'm good.
 	Shopkeeper: Sounds good, see you soon!
 	=> END
+
+~ apply_speed
+Shopkeeper: You're gonna be zooming now!
+
+~ apply_double_jump
+Shopkeeper: Bounce away, my friend!
+
+~ apply_jump
+	Shopkeeper: Enjoy the extra hangtime!
+
+
+~ apply_fall_resist
+	Shopkeeper: No more squishy landings.
+
+
+~ apply_float
+	Shopkeeper: Falling like a feather!
 
 => END

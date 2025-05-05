@@ -1059,7 +1059,6 @@ light_energy = 2.505
 transform = Transform3D(-1, 4.8605e-08, 7.26656e-08, -4.86329e-08, 0.381425, -0.9244, -7.2647e-08, -0.9244, -0.381425, 0.0529831, 7.56971, 4.59028)
 
 [node name="Torch3" parent="Torches/Node3D6" instance=ExtResource("44_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Torches/Node3D6/Torch3"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.579521, -0.00130081)
@@ -1094,7 +1093,6 @@ light_energy = 2.505
 transform = Transform3D(-1, 4.8605e-08, 7.26656e-08, -4.86329e-08, 0.381425, -0.9244, -7.2647e-08, -0.9244, -0.381425, 0.0529831, 15.8796, -0.972679)
 
 [node name="Torch3" parent="Torches/Node3D7" instance=ExtResource("44_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Torches/Node3D7/Torch3"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.579521, -0.00130081)
@@ -1129,7 +1127,6 @@ light_energy = 2.505
 transform = Transform3D(-1, 4.8605e-08, 7.26656e-08, -4.86329e-08, 0.381425, -0.9244, -7.2647e-08, -0.9244, -0.381425, 0.0529831, 24.1894, -6.53563)
 
 [node name="Torch3" parent="Torches/Node3D8" instance=ExtResource("44_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Torches/Node3D8/Torch3"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.579521, -0.00130081)
@@ -1164,7 +1161,6 @@ light_energy = 2.505
 transform = Transform3D(-1, 4.8605e-08, 7.26656e-08, -4.86329e-08, 0.381425, -0.9244, -7.2647e-08, -0.9244, -0.381425, 0.0529831, 32.4992, -12.0986)
 
 [node name="Torch3" parent="Torches/Node3D9" instance=ExtResource("44_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Torches/Node3D9/Torch3"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.579521, -0.00130081)
@@ -1199,7 +1195,6 @@ light_energy = 2.505
 transform = Transform3D(-1, 4.8605e-08, 7.26656e-08, -4.86329e-08, 0.381425, -0.9244, -7.2647e-08, -0.9244, -0.381425, 0.0529831, 40.8091, -17.6615)
 
 [node name="Torch3" parent="Torches/Node3D10" instance=ExtResource("44_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Torches/Node3D10/Torch3"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0.579521, -0.00130081)

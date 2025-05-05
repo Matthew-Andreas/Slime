@@ -15,6 +15,7 @@ var somethingHappened = false
 var isEmoting = false
 var jumping = false
 var doublejumping = false
+#var doublejumping := false
 var sense_horizontal = 0.2
 var sense_vertical = 0.2
 var mouse_captured : bool = false
@@ -29,6 +30,7 @@ var current_shopkeeper: Node = null
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+	#update_powerups()
 	#for shopkeeper
 	add_to_group("Player")  #this line makes your player detectable
 
@@ -135,6 +137,10 @@ func _physics_process(delta: float) -> void:
 	if(!somethingHappened and !isEmoting):
 		slime.animationType("Idle")
 	somethingHappened = false
+	
+	#added for shopkeeper
+	if Input.is_action_just_pressed("interact") and can_interact_with_shopkeeper and current_shopkeeper:
+		current_shopkeeper.open_shop()
 		
 	
 func _on_checkpoint_4_new_checkpoint(CP_Name: Variant) -> void:
