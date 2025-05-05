@@ -84,7 +84,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StatsPanel/AccuracyLabel:modulate")
+tracks/4/path = NodePath("StatsPanel/ScoreLabel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -96,7 +96,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("StatsPanel/ScoreLabel:modulate")
+tracks/5/path = NodePath("StatsPanel/TimeValue:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -108,7 +108,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("StatsPanel/TimeValue:modulate")
+tracks/6/path = NodePath("StatsPanel/CollectiblesValue:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -120,7 +120,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("StatsPanel/CollectiblesValue:modulate")
+tracks/7/path = NodePath("StatsPanel/ScoreValue:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -132,7 +132,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("StatsPanel/AccuracyValue:modulate")
+tracks/8/path = NodePath("RatingDisplay:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -144,7 +144,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("StatsPanel/ScoreValue:modulate")
+tracks/9/path = NodePath("Restart:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -156,34 +156,10 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("RatingDisplay:modulate")
+tracks/10/path = NodePath("MainMenuButton:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Restart:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("MainMenuButton:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -243,7 +219,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StatsPanel/AccuracyLabel:modulate")
+tracks/4/path = NodePath("StatsPanel/ScoreLabel:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -255,7 +231,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("StatsPanel/ScoreLabel:modulate")
+tracks/5/path = NodePath("StatsPanel/TimeValue:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -267,7 +243,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("StatsPanel/TimeValue:modulate")
+tracks/6/path = NodePath("StatsPanel/CollectiblesValue:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -279,7 +255,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("StatsPanel/CollectiblesValue:modulate")
+tracks/7/path = NodePath("StatsPanel/ScoreValue:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -291,7 +267,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("StatsPanel/AccuracyValue:modulate")
+tracks/8/path = NodePath("RatingDisplay:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -303,7 +279,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("StatsPanel/ScoreValue:modulate")
+tracks/9/path = NodePath("Restart:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -315,34 +291,10 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("RatingDisplay:modulate")
+tracks/10/path = NodePath("MainMenuButton:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Restart:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0784314, 0.0784314, 0.0784314, 1), Color(1, 1, 1, 1)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("MainMenuButton:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -458,28 +410,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -66.0
-offset_top = 100.0
-offset_right = 66.0
-offset_bottom = 125.0
+offset_left = -67.0
+offset_top = 118.0
+offset_right = 65.0
+offset_bottom = 143.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_qar6k")
 theme_override_font_sizes/font_size = 16
-text = "COLLECTIBLES"
-
-[node name="AccuracyLabel" type="Label" parent="StatsPanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -66.0
-offset_top = 140.0
-offset_right = 66.0
-offset_bottom = 165.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_qar6k")
-theme_override_font_sizes/font_size = 16
-text = "ACCURACY"
+text = "Player Health"
 
 [node name="ScoreLabel" type="Label" parent="StatsPanel"]
 layout_mode = 1
@@ -508,24 +446,13 @@ horizontal_alignment = 2
 
 [node name="CollectiblesValue" type="Label" parent="StatsPanel"]
 layout_mode = 0
-offset_left = 250.0
-offset_top = 100.0
-offset_right = 284.0
-offset_bottom = 120.0
+offset_left = 251.0
+offset_top = 119.0
+offset_right = 285.0
+offset_bottom = 139.0
 theme_override_fonts/font = ExtResource("3_qar6k")
 theme_override_font_sizes/font_size = 16
 text = "3/10"
-horizontal_alignment = 2
-
-[node name="AccuracyValue" type="Label" parent="StatsPanel"]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 140.0
-offset_right = 284.0
-offset_bottom = 160.0
-theme_override_fonts/font = ExtResource("3_qar6k")
-theme_override_font_sizes/font_size = 16
-text = "93%"
 horizontal_alignment = 2
 
 [node name="ScoreValue" type="Label" parent="StatsPanel"]

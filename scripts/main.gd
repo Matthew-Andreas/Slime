@@ -61,9 +61,6 @@ func update_money_ui():
 func update_health_ui():
 	if player_health == 0:
 		print("Player died")
-		#if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
-		#	player_health_ui[player_health_ui.size() - 1].queue_free()
-		#player_health = -1
 	else:
 		if prev_player_health > player_health:
 			if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
