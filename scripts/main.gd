@@ -6,6 +6,7 @@ const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 @export var player_money: float = 3
 var money_label
 
+
 var time_elapsed := 0.0
 var countup_timer
 
@@ -59,9 +60,9 @@ func update_money_ui():
 func update_health_ui():
 	if player_health == 0:
 		print("Player died")
-		if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
-			player_health_ui[player_health_ui.size() - 1].queue_free()
-		player_health = -1
+		#if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):
+		#	player_health_ui[player_health_ui.size() - 1].queue_free()
+		#player_health = -1
 	else:
 		if prev_player_health > player_health:
 			if is_instance_valid(player_health_ui[player_health_ui.size() - 1]):

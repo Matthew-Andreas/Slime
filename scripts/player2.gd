@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var checkpoint_4: Node3D = %Checkpoint4
 @onready var checkpoint_3: Node3D = %Checkpoint3
 @onready var checkpoint_2: Node3D = %Checkpoint2
+@onready var original_cp: Node3D = %OriginalCP
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 6
@@ -19,7 +20,7 @@ var doublejumping = false
 var sense_horizontal = 0.2
 var sense_vertical = 0.2
 var mouse_captured : bool = false
-var currrent_Checkpoint = null
+@onready var currrent_Checkpoint = original_cp
 
 #for shopkeeper npc
 var can_interact_with_shopkeeper = false
@@ -52,6 +53,14 @@ func release_mouse():
 	
 
 func _physics_process(delta: float) -> void:
+	if(GameManager.player_health <= 0):
+		self.position = currrent_Checkpoint.position
+		GameManager.player_health = 3
+		GameManager.update_health_ui()
+	#elif(GameManager.player_health <= 0):
+	#	self.global_position = Vector3(1.0,0.0,1.0)
+	#	GameManager.player_health = 3
+	#GameManager.update_health_ui()
 	# Add the gravity.
 	if(slime.get_cur_ani() == "Emote_Anger" or slime.get_cur_ani() == "Emote_Excite" or slime.get_cur_ani() == "Emote_Sad"):
 		somethingHappened = true
