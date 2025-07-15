@@ -3,7 +3,7 @@ extends Node3D
 const SPACE_SKY:Sky = preload("res://Skies/SpaceSky.tres")
 const NORMAL_SKY = preload("res://Skies/NormalSky.tres")
 
-@export var player_money: float = 3
+@export var player_money: float = 0
 var money_label
 var gameOver = false
 
@@ -50,8 +50,17 @@ var player_health_ui: Array
 var current_player_height: float
 
 func calcScore():
-	var score = (player_health * player_money) / time_elapsed
-	print(score)
+	var score = 0
+	if(player_health>=10 and time_elapsed<301):
+		score = 10000 + player_money
+	elif(player_health>=8 and time_elapsed<451):
+		score = 8000 + player_money
+	elif(player_health>=5 and time_elapsed<601):
+		score = 6000 + player_money
+	elif(player_health>=3 and time_elapsed<601):
+		score = 4000 + player_money
+	else:
+		score = player_money * player_health
 	return score
 
 func update_money_ui():
